@@ -47,7 +47,59 @@
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
+    transition: color .3s;
+}
+.navSecond-linkList li:hover :is(a,i){
+    color: #FF9B50;
 }
 .navSecond-linkList li i{
     font-size: 20px;
+    color: black;
+    transition: color .3s;
+}
+#navbarColor{
+    color: #FF9B50;
+}
+#navbarColor:hover{
+    color: #73777B;
+}
+.navbarThird-style a{
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+}
+.navbarThird-style a:hover{
+    color: #73777B;
+}
+.dropStyle{
+    font-size: 18px;
+    margin-top: 2px;
+    font-weight: 600;
+}
+.dropStyle:hover{
+    color: #73777B;
+}
+.navThird-input{
+    font-size: 18px;
+    padding: 10px 10px;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid #D8D9DA;
+    width: 300px;
+}
+.navThird-input::placeholder{
+    color: black;
+    font-size: 19px;
+}
+.navThird-input:focus{
+    outline-color: #FF9B50;
+}
+.navThird-button{
+    border: none;
+    background-color: #FF9B50;
+    padding: 0 20px;
+    border-radius: 0 10px 10px 0;
+    transition: all .4s;
+}
+.navThird-button:hover{
+    transform: scale(1.1);
 }

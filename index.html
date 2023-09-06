@@ -18,7 +18,7 @@
     <div class="navFirst-bg">
         <div class="container">
             <div class="row navFirst d-flex justify-content-between">
-                <div class="col-md-6 navFirst-left mt-2">
+                <div class="col-md-6 navFirst-left align-self-center">
                     <div class="navFirst-contact">
                         <ul class="navFirst-contactList list-unstyled d-flex justify-content-start align-items-center">
                             <li class="me-3">
@@ -63,23 +63,23 @@
                 <div class="col-md-8 navSecond-link">
                     <ul class="navSecond-linkList list-unstyled">
                         <li>
-                            <i class="fa-solid fa-user" style="color: #000000;"></i>
+                            <i class="fa-solid fa-user"></i>
                             <a href="#">Account</a>
                         </li>
                         <li>
-                            <i class="fa-solid fa-star" style="color: #000000;"></i>
+                            <i class="fa-solid fa-star"></i>
                             <a href="#">Wishlist</a>
                         </li>
                         <li>
-                            <i class="fa-solid fa-crosshairs" style="color: #000000;"></i>
+                            <i class="fa-solid fa-crosshairs"></i>
                             <a href="#">Checkout</a>
                         </li>
                         <li>
-                            <i class="fa-solid fa-cart-shopping" style="color: #000000;"></i>
+                            <i class="fa-solid fa-cart-shopping"></i>
                             <a href="#">Cart</a>
                         </li>
                         <li>
-                            <i class="fa-solid fa-lock" style="color: #000000;"></i>
+                            <i class="fa-solid fa-lock"></i>
                             <a href="#">Login</a>
                         </li>
                     </ul>
@@ -88,7 +88,7 @@
         </div>
     </div>
     <!--Navbar Third-->
-    <div class="container">
+    <div class="container py-3">
         <div class="row navThird">
             <div class="col-md-6 navThird-left">
                 <nav class="navbar navThird-menu navbar-expand-lg">
@@ -97,13 +97,13 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <ul class="navbar-nav navbarThird-menuList">
+                            <li class="nav-item navbarThird-style">
+                                <a class="nav-link" id="navbarColor" aria-current="page" href="#">Home</a>
                             </li>
                             <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                <div class="dropdown navThird-dropFirst">
+                                    <a class="btn dropdown-toggle dropStyle" href="#" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         Shop
                                     </a>
@@ -117,8 +117,8 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                <div class="dropdown navThird-dropSecond">
+                                    <a class="btn dropdown-toggle dropStyle" href="#" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         Blog
                                     </a>
@@ -128,28 +128,58 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item navbarThird-style">
                                 <a class="nav-link" href="#">Contact</a>
                             </li>
                         </ul>
                     </div>
                 </nav>
             </div>
-            <div class="col-md-6 navThird-rigth">
+            <div class="col-md-6 navThird-rigth d-flex justify-content-end align-items-center">
                 <div class="navThird-search">
-                    <form class="navThird-form" role="Search">
+                    <form class="navThird-form d-flex" role="Search">
                         <input type="text" class="navThird-input" placeholder="Search" aria-label="Search">
-                        <button class="navThird-button" type="submit">Search</button>
+                        <button class="navThird-button" type="submit">
+                            <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
+                        </button>
                     </form>
                 </div>
-                <!-- <nav class="navbar">
-                      <form class="d-flex" role="search">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                      </form>
-                    </div>
-                  </nav> -->
             </div>
+        </div>
+    </div>
+
+    <!-- COROUSEL BAŞLANGIÇ -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+        </div>
     </div>
 
 
