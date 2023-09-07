@@ -149,7 +149,7 @@
     </div>
 
     <!-- COROUSEL BAŞLANGIÇ -->
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-12">
                 <div id="carouselExampleIndicators" class="carousel slide">
@@ -158,37 +158,48 @@
                             class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                             aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <div class="row corouselFirst">
-                                <div class="col-md-6 carouselFirst-left">
-                                    <div class="carouselFirst-text">
-                                        <h1 class="carouselFirst-textBaslik">E-Shopper</h1>
-                                        <h3 class="carouselFirst-textAltBaslik"></h3>
+                            <div class="row corouselFirst d-flex justify-content-center">
+                                <div class="col-md-4 carouselFirst-left align-self-center">
+                                    <div class="carouselFirst-text text-center">
+                                        <img width="420px" height="130px" src="./image/logo.png" alt="">
+                                        <h3 class="carouselFirst-textBaslik mt-2">
+                                            <span class="textBaslik-first">E</span>-Shopper Special Offers For The Holidays Are Here
+                                        </h3>
+                                        <h5 class="carouselFirst-textParagraf mt-4">Add To Cart Now For Big Discount And Have Fun</h5>
                                     </div>
                                 </div>
-                                <div class="col-md-6 carouselFirst-img">
-                                    <!-- <img width="500px" src="./image/corousel1.jpg" class="carouselFirst-Image" alt="..."> -->
-                                    <video width="500px"  autoplay loop src="./image/video.mp4"></video>
+                                <div class="col-md-4 carouselFirst-img">
+                                    <video width="500px" class="corouselVideo" autoplay loop src="./image/corouselvideo.mp4"></video>
                                 </div>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img width="150px" src="./image/corousel2.jpg" class="" alt="...">
+                            <div class="row corouselSecond d-flex justify-content-center">
+                                <div class="col-md-4 text-center align-self-center">
+                                    <h1 class="carouselSecond-text">Get 10% Discount In The Cart On Orange Labeled Products</h1>
+                                    <h5 class="carouselSecond-paragraf mt-3">Add Product To Cart Now</h5>
+                                    <div class="corouselSecond-icon mb-5">
+                                        <i class="fa-solid fa-angles-down"></i>
+                                    </div>
+                                    <button class="corouselSecond-button">Products</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <img width="500px"  class="corouselSecond-img" src="./image/corousel.png" alt="">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <i class="fa-solid fa-angles-left corouselBack-icon"></i>
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="next">
-                        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
-                        <i class="fa-solid fa-crosshairs x"></i>
+                        <i class="fa-solid fa-angles-right corouselNext-icon"></i>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
