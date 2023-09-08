@@ -11,11 +11,11 @@ function sendApı(url){
             return`
             <div class="col-md-4 productsCards">
                 <div class="card">
-                    <img src="${item.image}" class="card-img-top" alt="...">
+                    <img class="productCard-img" src="${item.image}" class="card-img-top" alt="...">
                      <div class="card-body">
-                        <h5 class="card-title">${item.title}</h5>
-                        <p class="card-text">${item.price}</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title productCard-title">${item.title}</h5>
+                        <p class="card-text productCard-text">${item.price}</p>
+                        <button class="productCard-btn" type="button" role="Add Cart">Add Cart</button>
                     </div>
                 </div>
             </div>
