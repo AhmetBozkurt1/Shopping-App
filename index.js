@@ -13,7 +13,7 @@ function sendApı(url){
                 <div class="card">
                     <img class="productCard-img" src="${item.image}" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <p class="card-text productCard-text">${item.price} $</p>
+                    <p class="card-text productCard-text">${parseInt(item.price)} $</p>
                         <h5 class="card-title productCard-title">${item.title}</h5>
                         <button class="productCard-btn" type="button" role="Add Cart">Add Cart</button>
                     </div>
