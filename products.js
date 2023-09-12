@@ -48,13 +48,27 @@ document.addEventListener("DOMContentLoaded",function(){
             density:2
         }
     });
-    //*içindeki değeri alıp console yazdırma
+    //*slider içindeki değerleri alıp ürün fiyat aralığına göreürünleri çıkardım
     priceSlider.noUiSlider.on("change",(values)=>{
-        console.log(values)
+        const price1=+values[0]
+        const price2=+values[1]
+        const productsCards=document.querySelectorAll(".productsCards")
+        productsCards.forEach(function(card){
+            const cardPrice=card.querySelector(".productCard-text")
+            const priceNumber=parseInt(cardPrice.innerHTML)
+            if(price1<priceNumber && price2>priceNumber){
+                card.style.display="block"
+            }
+            else{
+                card.style.display="none"
+            }
+        })
     })
+//*reset butonu ile slideri ilk konumuna getirdim ve API çekme functionu ile tekrar ürünleri getirdim
     const resetBtn=document.getElementById("resetBtn")
     resetBtn.addEventListener("click",function(){
         priceSlider.noUiSlider.reset()
+        setApı(url)
     })
 })
 
