@@ -102,3 +102,34 @@ navSearchBtn.addEventListener("click",function(){
     }
 })
 
+//*CATEGORY SEARCH
+const menSearch=document.getElementById("menSearch")
+const productsCards=document.querySelectorAll(".productsCards")
+const menUrl="https://fakestoreapi.com/products/category/men's clothing"
+
+menSearch.addEventListener("click",function(){
+    fetch(menUrl)
+    .then(res=>res.json())
+    .then(value=>{
+        console.log(value)
+        let menWrite=value.map(element=>{
+            return`
+            <div class="col-md-4 productsCards">
+                <div class="card">
+                    <img class="productCard-img" src="${element.image}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text productCard-text">${parseInt(element.price)} $</p>
+                        <h5 class="card-title productCard-title">${element.title}</h5>
+                        <button class="productCard-btn" type="button" role="Add Cart">Add Cart</button>
+                    </div>
+                    <div class="favorites">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+            `
+        })
+        productsSectionCard.innerHTML=menWrite.join("")
+    })
+})
+
