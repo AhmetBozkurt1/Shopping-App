@@ -7,6 +7,7 @@
     <!-- BOOTSTRAP CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="nouislider.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -66,7 +67,7 @@
                         </li>
                         <li>
                             <i class="fa-solid fa-star"></i>
-                            <a href="#">Products</a>
+                            <a href="products.html">Products</a>
                         </li>
                         <li>
                             <i class="fa-solid fa-crosshairs"></i>
@@ -97,7 +98,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav navbarThird-menuList">
                             <li class="nav-item navbarThird-style">
-                                <a class="nav-link" id="navbarColor" aria-current="page" href="#">Home</a>
+                                <a class="nav-link" id="navbarColor" aria-current="page" href="index.html">Home</a>
                             </li>
                             <li class="nav-item">
                                 <div class="dropdown navThird-dropFirst">
@@ -137,7 +138,7 @@
                 <div class="navThird-search">
                     <form class="navThird-form d-flex" role="Search">
                         <input type="text" class="navThird-input" placeholder="Search" aria-label="Search">
-                        <button class="navThird-button" type="submit">
+                        <button class="navThird-button" type="button">
                             <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
                         </button>
                     </form>
@@ -228,6 +229,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="categoryFilterPrice mt-5">
+                        <div class="bar">
+                            <div class="label mb-3">Price $</div>
+                            <div id="r-slider"></div>
+                        </div>
+                        <div class="reset">
+                            <button id="resetBtn">Reset</button>
+                        </div>
+                    </div>
+                    <div class="categoryImage">
+                        <img src="./image/category.png" alt="">
+                    </div>
                 </div>
             </div>
             <div class="col-md-9 sectionRight">
@@ -235,14 +248,140 @@
                     <div class="productsTitle">
                         <h5 class="productsTitle-text">PRODUCTS</h5>
                     </div>
+                    <div class="productNoneMessage mt-4">
+                        <h3>THE PRODUCT YOU ARE LOOKING FOR IS NOT AVAILABLE...</h3>
+                        <div class="productGo text-center mt-5">
+                            <a href="products.html" class="productGo-link">Go To Products</a>
+                        </div>
+                    </div>
                     <div class="row productsSectionCard">
-                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
     
+
+    <!-- FOOTER SECTION -->
+    <div class="footer">
+        <div class="container mt-5">
+            <div class="row footerFirst py-5 d-flex">
+                <div class="col-md-2 footerFirst-text text-center">
+                    <div class="footerTextImg">
+                        <img width="155px" height="75px" src="./image/logo.png" alt="">
+                        <p>The most searched website in e-commerce</p>
+                    </div>
+                </div>
+                <div class="col-md-2 footerFirst-image">
+                    <img src="./image/footerImg1.png" alt="">
+                    <p class="mb-0">Circle Of Hands</p>
+                    <p>24 Dec 2014</p>
+                </div>
+                <div class="col-md-2 footerFirst-image align-self-end">
+                    <img src="./image/footerImg2.png" alt="">
+                    <p class="mb-0">Circle Of Hands</p>
+                    <p>24 Dec 2014</p>
+                </div>
+                <div class="col-md-2 footerFirst-image align-self-end">
+                    <img src="./image/footerImg3.png" alt="">
+                    <p class="mb-0">Circle Of Hands</p>
+                    <p>24 Dec 2014</p>
+                </div>
+                <div class="col-md-2 footerFirst-image align-self-end">
+                    <img src="./image/footerImg4.png" alt="">
+                    <p class="mb-0">Circle Of Hands</p>
+                    <p>24 Dec 2014</p>
+                </div>
+                <div class="col-md-2 footerFirst-map">
+                    <img width="250px" src="./image/footerMAp.png" alt="">
+                    <div class="footerMap-text">
+                        <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+                    </div>
+                </div>
+        
+            </div>
+            <div class="row footerSecond mt-5 d-flex justify-content-between">
+                <div class="col-md-8 footerSecond-left">
+                    <div class="row footerMenu">
+                        <div class="col-md-3 footerMenu-select">
+                            <h5 class="footerMenu-title">SERVICE</h5>
+                            <div class="footerMenu-Section">
+                                <ul class="footerMenuList">
+                                    <li> <a href="#">Online Help</a></li>
+                                    <li> <a href="#">Contact Us</a></li>
+                                    <li> <a href="#">Order Status</a></li>
+                                    <li> <a href="#">Change Location</a></li>
+                                    <li> <a href="#">FAQ's</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 footerMenu-select">
+                            <h5 class="footerMenu-title">QUOCK SHOP</h5>
+                            <div class="footerMenu-Section">
+                                <ul class="footerMenuList">
+                                    <li> <a href="#">T-shirt</a></li>
+                                    <li> <a href="#">Mens</a></li>
+                                    <li> <a href="#">Womens</a></li>
+                                    <li> <a href="#">Gift Cards</a></li>
+                                    <li> <a href="#">Shoes</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 footerMenu-select">
+                            <h5 class="footerMenu-title">POLICIES</h5>
+                            <div class="footerMenu-Section">
+                                <ul class="footerMenuList">
+                                    <li> <a href="#">Teams Of Use</a></li>
+                                    <li> <a href="#">Privecy Policy</a></li>
+                                    <li> <a href="#">Refund Policy</a></li>
+                                    <li> <a href="#">Billing System</a></li>
+                                    <li> <a href="#">Ticket System</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 footerMenu-select">
+                            <h5 class="footerMenu-title">ABOUT SHOPPER</h5>
+                            <div class="footerMenu-Section">
+                                <ul class="footerMenuList">
+                                    <li> <a href="#">Company Information</a></li>
+                                    <li> <a href="#">Careers</a></li>
+                                    <li> <a href="#">Store Location</a></li>
+                                    <li> <a href="#">Affillate Program</a></li>
+                                    <li> <a href="#">Copyright</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 footerSecond-right">
+                    <div class="footerContact">
+                        <h5 class="footerContact-title">ABOUT SHOPPER</h5>
+                        <form class="footerContact-form d-flex">
+                            <input type="text" class="footerContact-input" placeholder="Your Email Address">
+                            <button class="footerContact-btn">
+                                <i class="fa-regular fa-circle-right"></i>
+                            </button>
+                        </form>
+                        <p class="footerContact-text mt-4">Get the most recent updates from
+                            our site and be updated your self...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footerThird">
+        <div class="container">
+            <div class="row py-2">
+                <div class="col-md-6 footerThird-left">
+                    <h6>Copyright © E-SHOPPER Inc. All rights reserved.</h6>
+                </div>
+                <div class="col-md-6 footerThird-right text-end">
+                    <h6>Designed By Ahmet Bozkurt</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
     
     
@@ -257,6 +396,8 @@
     
     <!-- FONTAWESOME CDN -->
     <script src="https://kit.fontawesome.com/a09e04a105.js" crossorigin="anonymous"></script>
+
+    <script src="nouislider.min.js"></script>
 
     <!-- BOOTSTRAP JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
