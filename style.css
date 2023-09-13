@@ -108,7 +108,7 @@
     font-size: 19px;
 }
 .navThird-input:focus{
-    outline-color: #FF9B50;
+    outline: 1px solid #FF9B50;
 }
 .navThird-button{
     border: none;
@@ -289,7 +289,7 @@
 }
 .productsCards .card{
     width: 100%;
-    height: 400px;
+    height: 430px;
     padding: 1rem 0;
     text-align: center;
     margin-top: 1rem;
@@ -550,4 +550,53 @@
     font-weight: 600;
     padding: .5rem 1rem;
     border-radius: 30px;
+}
+
+/*****************************/
+/* PRODUCTS.HTML CSS KODLARI */
+
+/*****************************/
+/* LOGIN.HTML CSS KODLARI */
+
+.loginText{
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 2.2rem;
+}
+.loginForm input{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #D8D9DA;
+    padding: 1.5rem .8rem;
+    font-size: 17px;
+}
+.loginForm input:focus{
+    outline: 3px solid #FF9B50;
+}
+.loginBtn{
+    border: none;
+    background-color: #FF9B50;
+    color: #fff;
+    padding: .5rem 1.5rem;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 15px;
+    transition: border .3s, background-color .3s,color .3s,transform .3s;
+}
+.loginBtn:active{
+    border: 2px solid #FF9B50;
+    background-color: #fff;
+    color: #FF9B50;
+    transform: scale(1.1);
+}
+.orText{
+    display: inline-block;
+    background-color: #FF9B50;
+    color: #fff;
+    padding: 2rem;
+    border-radius: 50%;
+    font-weight: 700;
 }
