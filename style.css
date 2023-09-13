@@ -600,3 +600,13 @@
     border-radius: 50%;
     font-weight: 700;
 }
+.signIn-formIcon{
+    position: relative;
+}
+#signIn-icon{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
