@@ -600,10 +600,17 @@
     border-radius: 50%;
     font-weight: 700;
 }
-.signIn-formIcon{
+.formIcon{
     position: relative;
 }
-#signIn-icon{
+.formIcon-eye{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.formIcon-eye2{
     position: absolute;
     top: 15px;
     right: 10px;
