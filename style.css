@@ -617,3 +617,18 @@
     cursor: pointer;
     font-size: 20px;
 }
+.signUp-textMessage{
+    font-size: 16px;
+    font-weight: 600;
+}
+#accountGo{
+    color: #FF9B50;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+.signIn-textMessage{
+    font-size: 16px;
+    font-weight: 600;
+    color: #C63D2F;
+}

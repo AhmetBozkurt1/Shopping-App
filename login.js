@@ -29,7 +29,7 @@ formIconEye2.addEventListener("click",function(){
         formIconEye2.classList.replace("fa-eye","fa-eye-slash")
     }
 })
-
+//*SIGN UP KAYIT OLMA 
 const signUpButton=document.querySelector(".signUp-button")
 
 signUpButton.addEventListener("click",function(){
@@ -82,3 +82,33 @@ signUpButton.addEventListener("click",function(){
     }
 })
 
+//*SIGN IN GİRİŞ YAPMA
+const sıgnInButton=document.querySelector(".signIn-button")
+
+sıgnInButton.addEventListener("click",function(){
+    const sıgnInName=document.querySelector(".signIn-formName").value
+    const sıgnInEmail=document.querySelector(".signIn-formEmail").value
+    const sıgnInPass=document.querySelector(".signIn-formPass").value
+    let kullanicilar=JSON.parse(localStorage.getItem("kullanicilar"))
+    let giris=false
+
+    for (const element of kullanicilar) {
+        if(sıgnInName==element.kadi && sıgnInEmail==element.email && sıgnInPass==element.sifre){
+            giris=true
+            break
+        }
+    }
+
+    if(giris==true){
+        window.location.href="account.html"
+        localStorage.setItem("giris",true)
+    }
+    else{
+        document.querySelector(".signIn-textMessage").innerHTML=`Username or password is wrong`
+        document.querySelector(".signIn-Message").style.display="block"
+        setTimeout(function(){
+            document.querySelector(".signIn-Message").style.display="none"
+        },3000)
+        localStorage.setItem("giris",false)
+    }
+})
