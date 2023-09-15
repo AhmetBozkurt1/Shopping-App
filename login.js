@@ -33,7 +33,7 @@ formIconEye2.addEventListener("click",function(){
 const signUpButton=document.querySelector(".signUp-button")
 
 signUpButton.addEventListener("click",function(){
-    const signUpName=document.querySelector(".signUp-formName").value
+    let signUpName=document.querySelector(".signUp-formName").value
     const signUpEmail=document.querySelector(".signUp-formEmail").value
     const signUpPass=document.querySelector(".signUp-formPass").value
     const signUpPass2=document.querySelector(".signUp-formPass2").value
@@ -80,6 +80,11 @@ signUpButton.addEventListener("click",function(){
         signUpMessage.innerHTML=`You Have a Membership Registration <a id="accountGo"
         href="${goAccount}">Sign In</a>`
     }
+    
+    document.querySelector(".signUp-formName").value=""
+    document.querySelector(".signUp-formEmail").value=""
+    document.querySelector(".signUp-formPass").value=""
+    document.querySelector(".signUp-formPass2").value=""
 })
 
 //*SIGN IN GİRİŞ YAPMA
@@ -111,4 +116,8 @@ sıgnInButton.addEventListener("click",function(){
         },3000)
         localStorage.setItem("giris",false)
     }
+
+    document.querySelector(".signIn-formName").value=""
+    document.querySelector(".signIn-formEmail").value=""
+    document.querySelector(".signIn-formPass").value=""
 })
