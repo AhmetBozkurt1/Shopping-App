@@ -632,3 +632,27 @@
     font-weight: 600;
     color: #C63D2F;
 }
+/*****************************/
+/* LOGIN.HTML CSS KODLARI */
+
+/*****************************/
+/* CONTACT.HTML CSS KODLARI */
+
+.contactSection-title{
+    text-align: center;
+    color: #FF9B50;
+    font-weight: 600;
+}
+.contactInput-name{
+    width: 49%;
+}
+.contactInput-email{
+    width: 50%;
+}
+#contactInput-message{
+    width: 100%;
+}
+.contactInput{
+    height: 35px;
+    padding: 1.2rem .5rem;
+}

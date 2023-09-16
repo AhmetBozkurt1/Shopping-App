@@ -81,6 +81,12 @@ signUpButton.addEventListener("click",function(){
         href="${goAccount}">Sign In</a>`
     }
     
+//*burada mesajın belli bir sürede kaybolmasını sağladım ve her clickte yeniden çıkması için ilk değerini block yaptım
+    document.querySelector(".signUp-message").style.display="block"
+    setTimeout(function(){
+        document.querySelector(".signUp-message").style.display="none"
+    },2000)
+    
     document.querySelector(".signUp-formName").value=""
     document.querySelector(".signUp-formEmail").value=""
     document.querySelector(".signUp-formPass").value=""
