@@ -638,10 +638,11 @@
 /*****************************/
 /* CONTACT.HTML CSS KODLARI */
 
-.contactSection-title{
+.contact-title{
     text-align: center;
     color: #FF9B50;
     font-weight: 600;
+    margin-bottom: 2rem;
 }
 .contactInput-name{
     width: 49%;
@@ -651,8 +652,27 @@
 }
 #contactInput-message{
     width: 100%;
+    padding: 1rem .5rem;
+    margin-bottom: 1.2rem;
 }
 .contactInput{
     height: 35px;
     padding: 1.2rem .5rem;
+    margin-bottom: 1.2rem;
 }
+.contactInput:focus, #contactInput-message:focus{
+    outline-color: #FF9B50;
+}
+.contactBtn{
+    border: 2px solid #FF9B50;
+    background: #FF9B50;
+    color: #fff;
+    padding: .5rem 1.5rem;
+    font-weight: 500;
+    font-size: 18px;
+    transition: transform .2s;
+}
+.contactBtn:active{
+    transform: scale(1.1);
+}
+
