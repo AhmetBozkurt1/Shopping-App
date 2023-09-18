@@ -257,7 +257,19 @@
     font-weight: 600;
     text-decoration: none;
 }
-
+.categoryCoupon{
+    position: relative
+}
+.couponBtn{
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    border: none;
+    background-color: #FF9B50;
+    color: #fff;
+    padding: .3rem 1.5rem;
+    font-weight: 600;
+}
 /*SECTION RIGHT PRODUCTS*/
 .productsTitle-text{
     color: #FF9B50;
@@ -675,4 +687,22 @@
 .contactBtn:active{
     transform: scale(1.1);
 }
+.contact-adress-list li{
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+.contact-adress-link{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+.social-iconLink{
+    color: #73777B;
+    font-size: 24px;
+    transition: color .2s;
+}
+.social-iconLink:hover{
+    color: #FF9B50;
+}
+
 
