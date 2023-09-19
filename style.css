@@ -786,4 +786,30 @@
     color: #FF9B50;
 }
 
+/*****************************/
+/* CONTACT.HTML CSS KODLARI */
 
+/*****************************/
+/* CART.HTML CSS KODLARI */
+
+.sepetBox-title{
+    background-color: #FF9B50;
+    color: #fff;
+    padding: .5rem 1rem;
+}
+.sepetBox-titleText{
+    font-size: 22px;
+    font-weight: 600;
+}
+.creditCard-frond{
+    border: 2px solid red;
+    width: 400px;
+    height: 230px;
+    position: relative;
+}
+.frond-number{
+
+}
+.frond-name{
+
+}
