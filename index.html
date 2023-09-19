@@ -215,19 +215,37 @@
             <div class="col-12">
                 <div class="categoryCoupon mt-5">
                     <img src="./image/couponCode2.jpg" alt="">
-                    <button class="couponBtn">
+                    <button class="couponBtn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
-                        COUPONE CODE <i class="fa-solid fa-angles-right"></i></button>
+                        COUPONE CODE <i class="fa-solid fa-angles-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- MODAL -->
+    <div class="modal fade couponModal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">DISCOUNT COUPON CODE</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+              <h6 class="align-self-center">Your Coupone Code:</h6>
+              <h5 class="couponCode-text fw-bold"></h5>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <!-- CATEGORY AND PRODUCTS -->
+    
+    
+      <!-- CATEGORY AND PRODUCTS -->
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-3 sectionLeft">

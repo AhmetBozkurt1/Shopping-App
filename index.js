@@ -6,7 +6,6 @@ function sendApı(url){
     fetch(url)
     .then(res=>res.json())
     .then(value=>{
-        console.log(value)
         let productWrite=value.map(item=>{
             return`
             <div class="col-md-4 productsCards">
@@ -28,3 +27,18 @@ function sendApı(url){
     })
 }
 document.addEventListener("DOMContentLoaded",sendApı(url))
+
+let categoryCoupon=document.querySelector(".categoryCoupon")
+
+categoryCoupon.addEventListener("click",function(e){
+    if(e.target.classList.contains("couponBtn")){
+        let karakter="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+        let couponRandomCode=""
+        for(let i=0;i<7;i++){
+            couponRandomCode+=karakter[Math.floor(Math.random()*karakter.length)]
+        }
+        document.querySelector(".couponCode-text").innerHTML=couponRandomCode
+
+        localStorage.setItem("code",couponRandomCode)
+    }
+})
