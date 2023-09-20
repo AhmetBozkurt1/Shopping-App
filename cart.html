@@ -171,36 +171,197 @@
 
     <!-- ÖDEME ALANI -->
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-12"></div>
+        <div class="row mb-4">
+            <div class="col-12">
+                <h5 class="fw-bolder">What Would You Like To Do Next</h5>
+                <p class="fw-semibold">Choose if you have a discount code or reward points you want to use or would like to estimate your delivery coast.</p>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 x">
+        <div class="row d-flex">
+            <div class="col-md-6 cashSection">
                 <div class="creditCart">
                     <div class="creditCart-frond">
+                        <img src="./image/creditCart3.jpg" alt="">
                         <div class="frond-number">
-                            <h3 class="frond-numberText text-start">1234 5678 9012 3456</h3>
+                            <h6 class="frond-numberText fw-bold"></h6>
                         </div>
                         <div class="frond-name">
-                            <h4 class="frond-nameText text-start">Ahmet Bozkurt</h4>
+                            <p class="frond-nameText fw-semibold"></p>
+                        </div>
+                        <div class="frond-date">
+                            <p class="frond-dateText fw-semibold"></p>
+                        </div>
+                        <div class="frond-year">
+                            <p class="frond-yearText fw-semibold"></p>
                         </div>
                     </div>
                     <div class="creditCart-back">
-                        <div class="back-border">
-                        </div>
+                        <img src="./image/cartBack.jpg" alt="">
                         <div class="back-number">
-                            <h6 class="back-numberText">160</h6>
+                            <h6 class="back-numberText fw-bolder"></h6>
                         </div>
                     </div>
                 </div>
+                <div class="cashInput">
+                    <h4 class="cartInfo-text">Enter Your Card Information</h4>
+                    <form class="cartInfo-input mt-4">
+                        <input class="cartStyle" id="cartNumber" type="text" placeholder="Enter Your Card Number">
+                        <input class="cartStyle" id="cartName" type="text" placeholder="Enter The Name on the Card">
+                        <div class="cartDate">
+                            <input id="cartDateDay" type="text" placeholder="Month">
+                            <input id="cartDateYear" type="text" placeholder="Year">
+                        </div>
+                        <input class="cartStyle" id="cartCvv" type="text" placeholder="Enter Your Card's CVV2">
+                    </form>
+                    <div class="cartInfo-btn text-center">
+                        <button class="cartButton">Pay</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-
+            <div class="col-md-6 totalSection align-self-center">
+                <div class="sepetUrunFiyat">
+                    <h5 class="sepetUrunText">Total Of Items in Cart</h5>
+                    <h5 id="sepetUrunFiyat">232$</h5>
+                </div>
+                <div class="vergi">
+                    <h5 class="sepetVergi">Tax Price</h5>
+                    <h5 id="sepetVergiFiyat">30$</h5>
+                </div>
+                <div class="kargo">
+                    <h5 class="sepetKargo">Shipping Cost</h5>
+                    <h5 id="sepetKargoFiyat">Free</h5>
+                </div>
+                <div class="indirimKodu">
+                    <h5 class="sepetIndirim align-self-center">Discount Code</h5>
+                    <input id="sepetIndirimCode" type="text" placeholder="Discount Code">
+                </div>
+                <div class="sepetToplamFiyat">
+                    <h5 class="sepetToplam">Total</h5>
+                    <h5 id="sepetTotal">200$</h5>
+                </div>
             </div>
         </div>
     </div>
 
-
+    <!-- FOOTER SECTION -->
+    <div class="footer" style="margin-top: 100px;">
+        <div class="container mt-5">
+            <div class="row footerFirst py-5 d-flex">
+                <div class="col-md-2 footerFirst-text text-center">
+                    <div class="footerTextImg">
+                        <img width="155px" height="75px" src="./image/logo.png" alt="">
+                        <p>The most searched website in e-commerce</p>
+                    </div>
+                </div>
+                <div class="col-md-2 footerFirst-image">
+                    <img src="./image/footerImg1.png" alt="">
+                    <p class="mb-0">Circle Of Hands</p>
+                    <p>24 Dec 2014</p>
+                </div>
+                <div class="col-md-2 footerFirst-image align-self-end">
+                    <img src="./image/footerImg2.png" alt="">
+                    <p class="mb-0">Circle Of Hands</p>
+                    <p>24 Dec 2014</p>
+                </div>
+                <div class="col-md-2 footerFirst-image align-self-end">
+                    <img src="./image/footerImg3.png" alt="">
+                    <p class="mb-0">Circle Of Hands</p>
+                    <p>24 Dec 2014</p>
+                </div>
+                <div class="col-md-2 footerFirst-image align-self-end">
+                    <img src="./image/footerImg4.png" alt="">
+                    <p class="mb-0">Circle Of Hands</p>
+                    <p>24 Dec 2014</p>
+                </div>
+                <div class="col-md-2 footerFirst-map">
+                    <img width="250px" src="./image/footerMAp.png" alt="">
+                    <div class="footerMap-text">
+                        <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+                    </div>
+                </div>
+        
+            </div>
+            <div class="row footerSecond mt-5 d-flex justify-content-between">
+                <div class="col-md-8 footerSecond-left">
+                    <div class="row footerMenu">
+                        <div class="col-md-3 footerMenu-select">
+                            <h5 class="footerMenu-title">SERVICE</h5>
+                            <div class="footerMenu-Section">
+                                <ul class="footerMenuList">
+                                    <li> <a href="#">Online Help</a></li>
+                                    <li> <a href="#">Contact Us</a></li>
+                                    <li> <a href="#">Order Status</a></li>
+                                    <li> <a href="#">Change Location</a></li>
+                                    <li> <a href="#">FAQ's</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 footerMenu-select">
+                            <h5 class="footerMenu-title">QUOCK SHOP</h5>
+                            <div class="footerMenu-Section">
+                                <ul class="footerMenuList">
+                                    <li> <a href="#">T-shirt</a></li>
+                                    <li> <a href="#">Mens</a></li>
+                                    <li> <a href="#">Womens</a></li>
+                                    <li> <a href="#">Gift Cards</a></li>
+                                    <li> <a href="#">Shoes</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 footerMenu-select">
+                            <h5 class="footerMenu-title">POLICIES</h5>
+                            <div class="footerMenu-Section">
+                                <ul class="footerMenuList">
+                                    <li> <a href="#">Teams Of Use</a></li>
+                                    <li> <a href="#">Privecy Policy</a></li>
+                                    <li> <a href="#">Refund Policy</a></li>
+                                    <li> <a href="#">Billing System</a></li>
+                                    <li> <a href="#">Ticket System</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 footerMenu-select">
+                            <h5 class="footerMenu-title">ABOUT SHOPPER</h5>
+                            <div class="footerMenu-Section">
+                                <ul class="footerMenuList">
+                                    <li> <a href="#">Company Information</a></li>
+                                    <li> <a href="#">Careers</a></li>
+                                    <li> <a href="#">Store Location</a></li>
+                                    <li> <a href="#">Affillate Program</a></li>
+                                    <li> <a href="#">Copyright</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 footerSecond-right">
+                    <div class="footerContact">
+                        <h5 class="footerContact-title">ABOUT SHOPPER</h5>
+                        <form class="footerContact-form d-flex">
+                            <input type="text" class="footerContact-input" placeholder="Your Email Address">
+                            <button class="footerContact-btn">
+                                <i class="fa-regular fa-circle-right"></i>
+                            </button>
+                        </form>
+                        <p class="footerContact-text mt-4">Get the most recent updates from
+                            our site and be updated your self...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footerThird">
+        <div class="container">
+            <div class="row py-2">
+                <div class="col-md-6 footerThird-left">
+                    <h6>Copyright © E-SHOPPER Inc. All rights reserved.</h6>
+                </div>
+                <div class="col-md-6 footerThird-right text-end">
+                    <h6>Designed By Ahmet Bozkurt</h6>
+                </div>
+            </div>
+        </div>
+    </div> 
 
 
     <!-- FONTAWESOME CDN -->

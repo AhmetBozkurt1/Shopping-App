@@ -11,9 +11,9 @@
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 1.5px;
 }
-/* body{
+body{
     padding: 0 0 10rem 0;
-} */
+}
 
 /**************************/
 /* INDEX.HTML CSS KODLARI */
@@ -801,34 +801,128 @@
     font-size: 22px;
     font-weight: 600;
 }
+
+
 .creditCart{
-    width: 550px;
-    height: 310px;
+    width: 100%;
+    height: 50%;
     position: relative;
 }
 .creditCart-frond{
-    width: 100%;
-    height: 100%;
-    background-image: url("./image/creditCard.jpeg");
-    background-position: left;
-    background-size: cover;
-    background-repeat: no-repeat;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .6s;
+    backface-visibility: hidden;
 }
 .frond-number{
     position: absolute;
-    bottom: 28%;
-    left: 10%;
+    bottom: 40%;
+    left: 6%;
 }
 .frond-name{
     position: absolute;
-    bottom: 16%;
+    bottom: 25%;
+    left: 6%;
+}
+.frond-date{
+    position: absolute;
+    bottom: 15%;
+    left: 6%;
+}
+.frond-year{
+    position: absolute;
+    bottom: 15%;
     left: 10%;
 }
 .creditCart-back{
-    background-color: #337CCF;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    transition: .6s;
 }
+.back-number{
+    position: absolute;
+    top: 39%;
+    left: 33%;
+}
+
+
+.cartStyle{
+    width: 60%;
+    margin-bottom: 1.3rem;
+    height: 35px;
+    padding: 0 .8rem;
+    font-size: 18px;
+}
+.cartStyle:focus{
+    outline-color: #FF9B50;
+}
+.cartDate{
+    width: 60%;
+    display: flex;
+    column-gap: 5px;
+}
+.cartDate input{
+    width: 50%;
+    height: 35px;
+    margin-bottom: 1.3rem;
+    padding: 0 .8rem;
+    font-size: 18px;
+}
+.cartButton{
+    border: 2px solid #FF9B50;
+    background: none;
+    padding: .3rem 3rem;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FF9B50;
+    border-radius: 5px;
+    transition: transform .3s,color .3s,background-color .3s;
+}
+.cartButton:active{
+    transform: scale(1.1);
+    background-color: #FF9B50;
+    color: #fff;
+}
+
+
+
+.totalSection div:not(.totalSection div:nth-child(4)){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #D8D9DA;
+    margin-bottom: 1.5rem;
+    padding: .3rem 0 .3rem .3rem;
+}
+.indirimKodu{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    background-color: #D8D9DA;
+    padding-left: .3rem;
+}
+.totalSection div h5{
+    margin: 0;
+}
+#sepetIndirimCode{
+    height: 35px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
 
 
 
