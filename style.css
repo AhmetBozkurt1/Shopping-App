@@ -802,7 +802,9 @@ body{
     font-weight: 600;
 }
 
-
+.cashSection{
+    height: 100%;
+}
 .creditCart{
     width: 100%;
     height: 50%;
@@ -817,6 +819,10 @@ body{
     bottom: 0;
     transition: .6s;
     backface-visibility: hidden;
+}
+.creditCart-frond img{
+    border: 1px solid #FF9B50;
+    border-radius: 10px;
 }
 .frond-number{
     position: absolute;
@@ -845,6 +851,9 @@ body{
     transform: rotateY(180deg);
     transition: .6s;
 }
+.creditCart-back img{
+    border-radius: 10px;
+}
 .back-number{
     position: absolute;
     top: 39%;
@@ -853,7 +862,7 @@ body{
 
 
 .cartStyle{
-    width: 60%;
+    width: 80%;
     margin-bottom: 1.3rem;
     height: 35px;
     padding: 0 .8rem;
@@ -863,7 +872,7 @@ body{
     outline-color: #FF9B50;
 }
 .cartDate{
-    width: 60%;
+    width: 80%;
     display: flex;
     column-gap: 5px;
 }

@@ -28,10 +28,10 @@ function sendApı(url){
 }
 document.addEventListener("DOMContentLoaded",sendApı(url))
 
-let categoryCoupon=document.querySelector(".categoryCoupon")
 
-categoryCoupon.addEventListener("click",function(e){
-    if(e.target.classList.contains("couponBtn")){
+//*burada bir indirim kodu üretmesini istedim daha sonra bu kodu oluşturduğum modal içerisne yazdırdım ve en son başka yerlerde kullanmak için localStorage set ettim
+let couponBtn=document.querySelector(".couponBtn")
+couponBtn.addEventListener("click",function(){
         let karakter="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
         let couponRandomCode=""
         for(let i=0;i<7;i++){
@@ -40,5 +40,4 @@ categoryCoupon.addEventListener("click",function(e){
         document.querySelector(".couponCode-text").innerHTML=couponRandomCode
 
         localStorage.setItem("code",couponRandomCode)
-    }
 })

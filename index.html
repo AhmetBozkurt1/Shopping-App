@@ -75,7 +75,7 @@
                         </li>
                         <li>
                             <i class="fa-solid fa-cart-shopping"></i>
-                            <a href="#">Cart</a>
+                            <a href="cart.html">Cart</a>
                         </li>
                         <li>
                             <i class="fa-solid fa-lock"></i>
@@ -211,6 +211,7 @@
     </div>
 
     <!-- MODAL COUPON CODE -->
+    <!--burda butona click olduğunda ortaya çıkacak bir modal yaptım butona basınca modal gelmesi için modala verdiğim id değerini etkileşimde kullanacağım butonun "data-bs-target="#id" olacak şekilde yazarak etkileşimi gösteriyorum-->
     <div class="modal fade couponModal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -285,7 +286,8 @@
                 <div class="categoryCoupon mt-5">
                     <img class="w-100" height="100px" src="./image/code.jpg" alt="">
                     <div class="divCouponBtn text-center">
-                        <button class="couponBtn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button class="couponBtn" type="button"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <span></span>
                             <span></span>
                             <span></span>
