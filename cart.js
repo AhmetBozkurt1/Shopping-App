@@ -10,6 +10,7 @@ let backNumber=document.querySelector(".back-numberText")
 let frondDate=document.querySelector(".frond-dateText")
 let frondYear=document.querySelector(".frond-yearText")
 
+//*aşağıda input alanlarında girilen her karakteri anında başka bir alana yazdırmak için event tanımladım
 cartNumber.addEventListener("input",function(){
     let cartNumberValue=cartNumber.value
     frondNumber.innerHTML=cartNumberValue
@@ -28,6 +29,7 @@ cartYear.addEventListener("input",function(){
     frondYear.innerHTML=`/ ${cartYearValue}`
 })
 
+//*burada Cvv yazılacak input alanına click olduğumuzda kredi kartının arka yüzünü gösterecek kodları yazdım
 cartCvv.addEventListener("click",function(){
     let cartBack=document.querySelector(".creditCart-back")
     let cartFrond=document.querySelector(".creditCart-frond")
@@ -39,10 +41,70 @@ cartCvv.addEventListener("input",function(){
     let cartCvvValue=cartCvv.value
     backNumber.innerHTML=cartCvvValue
 })
+//*burada da cvv alanından başka bir yere çıktığımda credi kartınnın ön yüzünü tekrar gösterecek event olan blur eventini kullanıp başa alıyorum
 cartCvv.addEventListener("blur",function(){
     let cartBack=document.querySelector(".creditCart-back")
     let cartFrond=document.querySelector(".creditCart-frond")
 
     cartBack.style.transform="rotateY(-180deg)"
     cartFrond.style.transform="rotateY(0)"
+})
+
+document.addEventListener("DOMContentLoaded",function(){
+    
+    let localAdet=JSON.parse(localStorage.getItem("adet")) || ""
+    if(localAdet){
+        document.getElementById("cartAdet").style.display="block"
+        document.getElementById("cartAdet").innerHTML=localAdet
+    }
+    else{
+        document.getElementById("cartAdet").style.display="none"
+    }
+
+    let product=JSON.parse(localStorage.getItem("product")) || ""
+    if(product){
+        product.forEach(function(element){
+            let sepetRow=document.createElement("div")
+            sepetRow.classList.add("row","sepetBox-product")
+            sepetRow.innerHTML+=`
+                <div class="col-5 sepetBoxImg-name">
+                    <img id="sepetBox-image" src="${element.image}" alt="">
+                    <p id="sepetBox-name">${element.adi}</p>
+                </div>
+                <div class="col-2 spetBoxPrice d-flex align-items-center">
+                    <p id="sepetBox-price">${element.fiyat}</p>
+                </div>
+                <div class="col-2 sepetBoxPiece d-flex">
+                    <button id="sepetBoxPiece-arti" type="button">
+                        <i class="fa-regular fa-square-minus"></i>
+                    </button>
+                    <span id="sepetBox-piece">1</span>
+                    <button id="sepetBoxPiece-arti" type="button">
+                        <i class="fa-regular fa-square-plus"></i>
+                    </button>
+                </div>
+                <div class="col-3 sepetBoxTotal d-flex justify-content-between">
+                    <p id="sepetBox-total">${element.fiyat}</p>
+                    <div class="product-close">
+                    <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+            `
+            document.querySelector(".sepetBoxAll").appendChild(sepetRow)
+        })
+    }else{
+        let sepetBosMessage=document.createElement("div")
+        sepetBosMessage.innerHTML=`
+            <div class="sepetBosMessage">
+                <div class="row">
+                    <div class="col-12 d-flex">
+                        <h3 class="sepet-message">There is no product in your cart...</h3>
+                    </div>
+                </div>
+            </div>
+        `
+        document.querySelector(".sepetBoxAll").appendChild(sepetBosMessage)
+    }
+
+    
 })

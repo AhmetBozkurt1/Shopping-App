@@ -26,8 +26,18 @@ function sendApı(url){
         productSecondCard.innerHTML=productWrite.join("")
     })
 }
-document.addEventListener("DOMContentLoaded",sendApı(url))
+document.addEventListener("DOMContentLoaded",function(){
+    sendApı(url)
 
+    let localAdet=JSON.parse(localStorage.getItem("adet")) || ""
+    if(localAdet){
+        document.getElementById("cartAdet").style.display="block"
+        document.getElementById("cartAdet").innerHTML=localAdet
+    }
+    else{
+        document.getElementById("cartAdet").style.display="none"
+    }
+})
 
 //*burada bir indirim kodu üretmesini istedim daha sonra bu kodu oluşturduğum modal içerisne yazdırdım ve en son başka yerlerde kullanmak için localStorage set ettim
 let couponBtn=document.querySelector(".couponBtn")

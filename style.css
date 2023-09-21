@@ -73,6 +73,25 @@ body{
     color: black;
     transition: color .3s;
 }
+#sepetArtıEksi{
+    position: relative;
+}
+#cartAdet{
+    position: absolute;
+    top: -90%;
+    right: 50%;
+    font-size: 18px;
+    color: #fff;
+    background-color: #FF9B50;
+    border-radius: 50%;
+    font-weight: 600;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    padding-bottom: 27px;
+    padding-left: 2px;
+    display: none;
+}
 #navbarColor{
     color: #FF9B50;
 }
@@ -792,7 +811,7 @@ body{
 /*****************************/
 /* CART.HTML CSS KODLARI */
 
-.sepetBox-title{
+.sepetBox{
     background-color: #FF9B50;
     color: #fff;
     padding: .5rem 1rem;
@@ -801,6 +820,59 @@ body{
     font-size: 22px;
     font-weight: 600;
 }
+.sepetBox-product{
+    border-bottom: 2px solid #D8D9DA;
+    border-right: 2px solid #D8D9DA;
+    border-left: 2px solid #D8D9DA;
+    padding: 2rem .5rem;
+}
+.sepetBoxImg-name{
+    display: flex;
+    column-gap: 1em;
+}
+#sepetBox-image{
+    width: 100px;
+}
+#sepetBox-name{
+    align-self: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+#sepetBox-price{
+    font-size: 20px;
+    font-weight: 700;
+}
+.sepetBoxPiece{
+    align-items: center;
+    column-gap: .5rem;
+    margin-top: -18px;
+}
+#sepetBox-piece{
+    font-size: 20px;
+    font-weight: 700;
+}
+#sepetBoxPiece-arti{
+    border: none;
+    background: none;
+    font-size: 25px;
+}
+#sepetBox-total{
+    font-size: 20px;
+    font-weight: 700;
+    align-self: center;
+}
+.product-close{
+    align-self: center;
+    font-size: 30px;
+    margin-top: -18px;
+}
+.sepetBosMessage{
+    margin-top: 2rem;
+}
+.sepet-message{
+    font-weight: 600;
+}
+
 
 .cashSection{
     height: 100%;
@@ -922,6 +994,9 @@ body{
 #sepetIndirimCode{
     height: 35px;
     text-align: center;
+}
+#sepetIndirimCode:focus{
+    outline-color: #73777B;
 }
 
 

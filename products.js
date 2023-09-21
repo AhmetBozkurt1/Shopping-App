@@ -31,6 +31,16 @@ function setApı(url){
 document.addEventListener("DOMContentLoaded",function(){
     //API den veri çekme*
     setApı(url)
+
+//*burada sayfa hazır olduğunda locale gönderdiğim sepetteki ürün adetimi çekiyorum bu bana diğer sayfalar arası gezinirken devamlı orada sepette ürünümün olduğunu gösteriyor diğer türlü hiçbir zaman sayfa geçişinde sepetteki ürün sayısı azalıyor
+    let localAdet=JSON.parse(localStorage.getItem("adet")) || ""
+    if(localAdet){
+        document.getElementById("cartAdet").style.display="block"
+        document.getElementById("cartAdet").innerHTML=localAdet
+    }
+    else{
+        document.getElementById("cartAdet").style.display="none"
+    }
     
 //*Fiyat Filtre
     const priceSlider=document.getElementById("r-slider")
@@ -230,22 +240,49 @@ jewelerySearch.addEventListener("click",function(){
     })
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//******BURALARA SEPETE EKLEME TANIMLANACAK**********
+//*urun içerisine localStorage alanında verileri her tıklamada her bir ürünü eklemesi için verileri bir dizi içine pushlamak lazım normal obje olarak göndermemeliyiz ve ayrıca click olayının dışına bu global dizi değişkenini tanımlamak lazım
+let urun=JSON.parse(localStorage.getItem("urun")) || []
+let urunAdet=0
 productsSectionCard.addEventListener("click",function(e){
-    console.log(e.target)
+    if(e.target.classList.contains("productCard-btn")){
+        let parentDiv=e.target.parentElement.parentElement
+        let urunImg=parentDiv.children[0].src
+        let urunName=parentDiv.children[1].children[1].innerHTML
+        let urunFiyat=parentDiv.children[1].children[0].innerHTML
+        urunAdet++
+        urun.push(
+            {
+                adi:urunName,
+                fiyat:urunFiyat,
+                image:urunImg
+            }
+        )
+//*her ürün eklendiğinde ürün adetimi bir değişkene atayıp locale kaydediyorum ve bunu sayfa hazır olduğunda sepetimde ürün varsa bunu cart üsründe adetini göstericem
+        localStorage.setItem("adet",JSON.stringify(urunAdet))
+        localStorage.setItem("product",JSON.stringify(urun))
+
+        document.getElementById("cartAdet").style.display="block"
+        document.getElementById("cartAdet").innerHTML++
+    }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
