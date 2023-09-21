@@ -76,11 +76,11 @@ document.addEventListener("DOMContentLoaded",function(){
                 </div>
                 <div class="col-2 sepetBoxPiece d-flex">
                     <button class="sepetBoxPiece-eksi" type="button">
-                        <i class="fa-regular fa-square-minus"></i>
+                        <i class="sepetBox-iconEksi fa-regular fa-square-minus"></i>
                     </button>
                     <span class="sepetBox-piece">1</span>
                     <button class="sepetBoxPiece-arti" type="button">
-                        <i class="fa-regular fa-square-plus"></i>
+                        <i class="sepetBox-iconArti fa-regular fa-square-plus"></i>
                     </button>
                 </div>
                 <div class="col-3 sepetBoxTotal d-flex justify-content-between">
@@ -108,18 +108,18 @@ document.addEventListener("DOMContentLoaded",function(){
 })
 
 
-// const sepetBoxAll=document.querySelector(".sepetBoxAll")
-// const urunName=document.querySelector(".sepetBox-name")
-// const urunFiyat=document.querySelector(".sepetBox-price")
-// let urunAdet=document.querySelector(".sepetBox-piece")
-// const urunToplam=document.querySelector(".sepetBox-total")
+const sepetBoxAll=document.querySelector(".sepetBoxAll")
 
-// const sepetFiyat=document.getElementById("sepetUrunFiyat")
-// const sepetTax=document.getElementById("sepetVergiFiyat")
-// const sepetKargo=document.getElementById("sepetKargoFiyat")
-// const sepetIndirim=document.getElementById("sepetIndirimCode")
-// const sepetToplam=document.getElementById("sepetTotal")
+sepetBoxAll.addEventListener("click",function(e){
+    if(e.target.classList.contains("sepetBox-iconArti")){
+        let urunAdet=+e.target.parentElement.previousElementSibling
+        urunAdet.innerHTML++
+        let urunFiyat=e.target.parentElement.parentElement.previousElementSibling.children[0].innerHTML
+        let urunToplam=e.target.parentElement.parentElement.nextElementSibling.children[0].innerHTML
+        let x=parseInt(urunFiyat)
+        console.log(x)
+        //*urunAdet NaN HATASI VERİYOR SORUN ORADA
+    }
+})
 
-let arttirButons=document.querySelectorAll(".sepetBoxPiece-arti")
-console.log(arttirButons)
 
