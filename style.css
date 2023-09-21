@@ -830,15 +830,15 @@ body{
     display: flex;
     column-gap: 1em;
 }
-#sepetBox-image{
+.sepetBox-image{
     width: 100px;
 }
-#sepetBox-name{
+.sepetBox-name{
     align-self: center;
     font-size: 16px;
     font-weight: 600;
 }
-#sepetBox-price{
+.sepetBox-price{
     font-size: 20px;
     font-weight: 700;
 }
@@ -847,16 +847,21 @@ body{
     column-gap: .5rem;
     margin-top: -18px;
 }
-#sepetBox-piece{
+.sepetBox-piece{
     font-size: 20px;
     font-weight: 700;
 }
-#sepetBoxPiece-arti{
+.sepetBoxPiece-arti{
     border: none;
     background: none;
     font-size: 25px;
 }
-#sepetBox-total{
+.sepetBoxPiece-eksi{
+    border: none;
+    background: none;
+    font-size: 25px;
+}
+.sepetBox-total{
     font-size: 20px;
     font-weight: 700;
     align-self: center;
@@ -865,6 +870,7 @@ body{
     align-self: center;
     font-size: 30px;
     margin-top: -18px;
+    cursor: pointer;
 }
 .sepetBosMessage{
     margin-top: 2rem;

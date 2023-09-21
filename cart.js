@@ -68,25 +68,25 @@ document.addEventListener("DOMContentLoaded",function(){
             sepetRow.classList.add("row","sepetBox-product")
             sepetRow.innerHTML+=`
                 <div class="col-5 sepetBoxImg-name">
-                    <img id="sepetBox-image" src="${element.image}" alt="">
-                    <p id="sepetBox-name">${element.adi}</p>
+                    <img class="sepetBox-image" src="${element.image}" alt="">
+                    <p class="sepetBox-name">${element.adi}</p>
                 </div>
                 <div class="col-2 spetBoxPrice d-flex align-items-center">
-                    <p id="sepetBox-price">${element.fiyat}</p>
+                    <p class="sepetBox-price">${element.fiyat}</p>
                 </div>
                 <div class="col-2 sepetBoxPiece d-flex">
-                    <button id="sepetBoxPiece-arti" type="button">
+                    <button class="sepetBoxPiece-eksi" type="button">
                         <i class="fa-regular fa-square-minus"></i>
                     </button>
-                    <span id="sepetBox-piece">1</span>
-                    <button id="sepetBoxPiece-arti" type="button">
+                    <span class="sepetBox-piece">1</span>
+                    <button class="sepetBoxPiece-arti" type="button">
                         <i class="fa-regular fa-square-plus"></i>
                     </button>
                 </div>
                 <div class="col-3 sepetBoxTotal d-flex justify-content-between">
-                    <p id="sepetBox-total">${element.fiyat}</p>
+                    <p class="sepetBox-total">${element.fiyat}</p>
                     <div class="product-close">
-                    <i class="fa-solid fa-xmark"></i>
+                        <i class="fa-solid fa-xmark"></i>
                     </div>
                 </div>
             `
@@ -105,6 +105,21 @@ document.addEventListener("DOMContentLoaded",function(){
         `
         document.querySelector(".sepetBoxAll").appendChild(sepetBosMessage)
     }
-
-    
 })
+
+
+// const sepetBoxAll=document.querySelector(".sepetBoxAll")
+// const urunName=document.querySelector(".sepetBox-name")
+// const urunFiyat=document.querySelector(".sepetBox-price")
+// let urunAdet=document.querySelector(".sepetBox-piece")
+// const urunToplam=document.querySelector(".sepetBox-total")
+
+// const sepetFiyat=document.getElementById("sepetUrunFiyat")
+// const sepetTax=document.getElementById("sepetVergiFiyat")
+// const sepetKargo=document.getElementById("sepetKargoFiyat")
+// const sepetIndirim=document.getElementById("sepetIndirimCode")
+// const sepetToplam=document.getElementById("sepetTotal")
+
+let arttirButons=document.querySelectorAll(".sepetBoxPiece-arti")
+console.log(arttirButons)
+
