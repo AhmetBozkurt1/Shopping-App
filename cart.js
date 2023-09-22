@@ -91,8 +91,31 @@ document.addEventListener("DOMContentLoaded",function(){
                 </div>
             `
             document.querySelector(".sepetBoxAll").appendChild(sepetRow)
+
         })
-    }else{
+        let sepetUrunFiyat=document.getElementById("sepetUrunFiyat")
+        let sepetVergi=document.getElementById("sepetVergiFiyat")
+        let sepetKargo=document.getElementById("sepetKargoFiyat")
+        let sepetIndirim=document.getElementById("sepetIndirimCode")
+        let sepetTotal=document.getElementById("sepetTotal")
+
+        let sepetDom=document.querySelectorAll(".sepetBox-price")
+        let sepetDomFirst=0
+        sepetDom.forEach(function(item){
+            let sepetDomNumber=parseInt(item.innerHTML)
+            sepetDomFirst+=sepetDomNumber
+            sepetUrunFiyat.innerHTML=`${sepetDomFirst} $`
+            sepetVergi.innerHTML=`${(sepetDomFirst*10)/100} $`
+        })
+        let indirimInput=JSON.parse(localStorage.getItem("code")) || ""
+        if(sepetIndirim){
+            if(indirimInput==sepetIndirim.value){
+                console.log("test")
+            }
+        }
+        
+    }
+    else{
         let sepetBosMessage=document.createElement("div")
         sepetBosMessage.innerHTML=`
             <div class="sepetBosMessage">
@@ -111,14 +134,43 @@ document.addEventListener("DOMContentLoaded",function(){
 const sepetBoxAll=document.querySelector(".sepetBoxAll")
 
 sepetBoxAll.addEventListener("click",function(e){
+    let sepetUrunFiyat=document.getElementById("sepetUrunFiyat")
+    let sepetVergi=document.getElementById("sepetVergiFiyat")
+    let sepetKargo=document.getElementById("sepetKargoFiyat")
+    let sepetIndirim=document.getElementById("sepetIndirimCode")
+    let sepetTotal=document.getElementById("sepetTotal")
+    
+    let sepetAllFiyat=document.querySelectorAll(".sepetBox-total")
     if(e.target.classList.contains("sepetBox-iconArti")){
-        let urunAdet=+e.target.parentElement.previousElementSibling
+        let urunAdet=e.target.parentElement.previousElementSibling
         urunAdet.innerHTML++
+        let urunAdetSon=urunAdet.innerHTML
         let urunFiyat=e.target.parentElement.parentElement.previousElementSibling.children[0].innerHTML
-        let urunToplam=e.target.parentElement.parentElement.nextElementSibling.children[0].innerHTML
-        let x=parseInt(urunFiyat)
-        console.log(x)
-        //*urunAdet NaN HATASI VERİYOR SORUN ORADA
+        let urunFiyatSon=parseInt(urunFiyat)
+        let urunToplam=e.target.parentElement.parentElement.nextElementSibling.children[0]
+        let sonuc=urunAdetSon*urunFiyatSon
+        urunToplam.innerHTML=`${sonuc} $`
+
+
+        let sepetWrite=0
+        sepetAllFiyat.forEach(function(item){
+            let sepetAllNumber=parseInt(item.innerHTML)
+            sepetWrite+=sepetAllNumber
+            sepetUrunFiyat.innerHTML=`${sepetWrite}`
+        })
+        
+    }
+    else if(e.target.classList.contains("sepetBox-iconEksi")){
+        let urunAdet=e.target.parentElement.nextElementSibling
+        if(urunAdet.innerHTML>1){
+            urunAdet.innerHTML--
+            let urunAdetSon=urunAdet.innerHTML
+            let urunFiyat=e.target.parentElement.parentElement.previousElementSibling.children[0]
+            let urunFiyatSon=parseInt(urunFiyat.innerHTML)
+            let urunToplam=e.target.parentElement.parentElement.nextElementSibling.children[0]
+            let sonuc=urunAdetSon*urunFiyatSon
+            urunToplam.innerHTML=`${sonuc} $`
+        }
     }
 })
 

@@ -979,7 +979,7 @@ body{
 
 
 
-.totalSection div:not(.totalSection div:nth-child(4)){
+.totalStyle{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -994,15 +994,25 @@ body{
     background-color: #D8D9DA;
     padding-left: .3rem;
 }
-.totalSection div h5{
-    margin: 0;
-}
 #sepetIndirimCode{
     height: 35px;
-    text-align: center;
+    padding: .5rem;
 }
 #sepetIndirimCode:focus{
     outline-color: #73777B;
+}
+.indirim{
+    position: relative;
+}
+.indirimOnay{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    font-size: 27px;
+    cursor: pointer;
+}
+.totalSection div h5{
+    margin: 0;
 }
 
 

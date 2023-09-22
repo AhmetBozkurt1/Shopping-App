@@ -49,5 +49,5 @@ couponBtn.addEventListener("click",function(){
         }
         document.querySelector(".couponCode-text").innerHTML=couponRandomCode
 
-        localStorage.setItem("code",couponRandomCode)
+        localStorage.setItem("code",JSON.stringify(couponRandomCode))
 })
