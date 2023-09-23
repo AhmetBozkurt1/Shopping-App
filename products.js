@@ -243,6 +243,7 @@ jewelerySearch.addEventListener("click",function(){
 //*urun içerisine localStorage alanında verileri her tıklamada her bir ürünü eklemesi için verileri bir dizi içine pushlamak lazım normal obje olarak göndermemeliyiz ve ayrıca click olayının dışına bu global dizi değişkenini tanımlamak lazım
 let urun=JSON.parse(localStorage.getItem("urun")) || []
 let urunAdet=0
+let dataId=0
 productsSectionCard.addEventListener("click",function(e){
     if(e.target.classList.contains("productCard-btn")){
         let parentDiv=e.target.parentElement.parentElement
@@ -250,11 +251,13 @@ productsSectionCard.addEventListener("click",function(e){
         let urunName=parentDiv.children[1].children[1].innerHTML
         let urunFiyat=parentDiv.children[1].children[0].innerHTML
         urunAdet++
+        dataId++
         urun.push(
             {
                 adi:urunName,
                 fiyat:urunFiyat,
-                image:urunImg
+                image:urunImg,
+                id:dataId
             }
         )
 //*her ürün eklendiğinde ürün adetimi bir değişkene atayıp locale kaydediyorum ve bunu sayfa hazır olduğunda sepetimde ürün varsa bunu cart üsründe adetini göstericem

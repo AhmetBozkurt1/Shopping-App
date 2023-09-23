@@ -51,8 +51,8 @@ cartCvv.addEventListener("blur",function(){
 })
 
 document.addEventListener("DOMContentLoaded",function(){
-    
-//*eğer sepette ürün varsa bunu locale kaydettiğim veri ile her DOM yenilendiğinde veri çektim ve gösterdim
+
+//*eğer sepette ürün varsa bunu locale kaydettiğim sepet adet veri ile her DOM yenilendiğinde veri çekerek sepetteki ürün sayısını gösterdim
     let localAdet=JSON.parse(localStorage.getItem("adet")) || ""
     if(localAdet){
         document.getElementById("cartAdet").style.display="block"
@@ -101,8 +101,8 @@ document.addEventListener("DOMContentLoaded",function(){
         let sepetIndirim=document.getElementById("sepetIndirimCode")
         let sepetTotal=document.getElementById("sepetTotal")
 
-//*burada sepetteki tüm fiyatlara erişip onların toplamını sayfada hesaplama bölümünde kullanmak üzere hepsine ulaşıyorum ve dahasonra bubları toplayabilmek için 0'a eşit olan bir değişken atıyorum
-//*daha sonra tüm fiyatları gezip bunların parseInt ile number alanlarını alıp 0!a eşit olan değişkenime += ile hepsini üst üste toplayarak gönderiyorum
+//*burada sepetteki tüm fiyatlara erişip onların toplamını sayfada hesaplama bölümünde kullanmak üzere hepsine ulaşıyorum ve dahasonra bunları toplayabilmek için 0'a eşit olan bir değişken atıyorum
+//*daha sonra tüm fiyatları gezip bunların parseInt ile number alanlarını alıp 0'a eşit olan değişkenime += ile hepsini üst üste toplayarak gönderiyorum
         let sepetDom=document.querySelectorAll(".sepetBox-price")
         let sepetDomFirst=0
         let vergiFiyat=0
@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded",function(){
                 sepetTotal.innerHTML=`${totalFiyat} $`
             }
         })
+//*indirim kodunu localden çekerek input içindeki girilen kod ile uyuşması veya uyuşmaması durumunda olaylarımı yazdım
         let indirimInput=JSON.parse(localStorage.getItem("code")) || ""
         let indirimOnay=document.querySelector(".indirimOnay")
         indirimOnay.addEventListener("click",function(){
@@ -163,7 +164,8 @@ document.addEventListener("DOMContentLoaded",function(){
     }
 })
 
-
+//*sepetRow içreisine oluşturduğum yapı içindeki verilere ilk başta ulaşamadım sebebi ise benim bu yapım DİNAMİK halde bir yapı benim bunu statik hale getirmem lazım bunun içinde her veriye direkt ulaşmak yerine bunun yerine if yapıları içerisinde clicklenen eleman üzerinden hareket ederek hedef elemana ulaşana kadar click elemandan başlayarak parentElementlerine,onların bir önceki(previousElementSibling) veya bir sonraki(nextElementSibling) elementlerine onlarında children halleri içerisinden ilgili elementlere ulaştım ve onlar üzerinden işlem yaptım
+//*DİNAMİK halde olan bir yapıda verilerie ulaşmak için bu şekilde yapabiliriz
 const sepetBoxAll=document.querySelector(".sepetBoxAll")
 
 sepetBoxAll.addEventListener("click",function(e){
@@ -189,7 +191,7 @@ sepetBoxAll.addEventListener("click",function(e){
         sepetAllFiyat.forEach(function(item){
             let sepetAllNumber=parseInt(item.innerHTML)
             sepetWrite+=sepetAllNumber
-            sepetUrunFiyat.innerHTML=`${sepetWrite}`
+            sepetUrunFiyat.innerHTML=`${sepetWrite} $`
         })
         
     }
@@ -206,8 +208,29 @@ sepetBoxAll.addEventListener("click",function(e){
         }
     }
     else if(e.target.classList.contains("productClose-icon")){
-        let sepetRow=this.children
-        console.log(sepetRow)
+        let sepetRow=e.target.parentElement.parentElement.parentElement
+//*sepete eklenen ürünlerimi localden alıyordum burada ürün silme butonuna bastığımda ekrandan silmem yetmiyor localden de silmem lazım çünkü diyelim ki sayfada sildim fakat localde hala eklenen ürünler gözüktüğü için sayfayı yenilediğimde sildiğim ürünler yine gelecek
+//*bunu da sildiğim ürünü localdeki product içerisinden de silmekle çözdüm
+        let productName=sepetRow.querySelector(".sepetBox-name").innerHTML;
+//*ürünün kapsayıcısı oluşturduğum sepetRow olduğu için ona ulaşıp remove() ile komple sildim
+        sepetRow.remove()
+//*sildiğim her ürünü sepet sayısından da düşmem lazım o yüzden sepet sayısını gösteren elemana ulaştım ve 1 eksiltme yaptım ayrıca sepet sayısı 0 eşit olunca sepet sayısı gözükmesin istedim
+        let cartAdet=document.getElementById("cartAdet")
+        let newCartAdet=(cartAdet.innerHTML)-1
+        cartAdet.innerHTML=newCartAdet
+        if(cartAdet.innerHTML==0){
+            cartAdet.style.display="none"
+        }
+//*bunun için eğer ben silmek için click attığım elementin ismini bir değişkene alırsam ve daha sonra localden product elemanını çekerek bana dizi olarak döndüğü için içinden filtreleme yaparak dizi içerisindeki clicklenen ürünün isminin ürün isimlerine eşit olmayanları filtreleyerek onları da tekrar locale get ederek çözdüm
+        let products=JSON.parse(localStorage.getItem("product")) || []
+        let newProducts=products.filter(product=>product.adi!==productName)
+        localStorage.setItem("product",JSON.stringify(newProducts))
+        
+//*aynı şekilde benim sepet adet sayım da diğer sayfalarda da sepette ürünümün var olduğunu göstermek amacıyla sepet adet sayısını locale kaydetmiştim o yüzden her silinen ürün için localdeki verimi de düşürmem gerekiyor
+//*bunu da aynı şekilde ilk önce localden adet verimi çekiyorum bir değişkene atayarak daha sonra bunu 1 eksiltme işlemi yapıyorum ve tekrardan eksilmiş sayı ile atadığım depişkeni locale set ediyorum
+        let adet=JSON.parse(localStorage.getItem("adet")) || 0
+        let newAdet=adet-1
+        localStorage.setItem("adet",JSON.stringify(newAdet))
     }
 })
 
