@@ -52,6 +52,7 @@ cartCvv.addEventListener("blur",function(){
 
 document.addEventListener("DOMContentLoaded",function(){
     
+//*eğer sepette ürün varsa bunu locale kaydettiğim veri ile her DOM yenilendiğinde veri çektim ve gösterdim
     let localAdet=JSON.parse(localStorage.getItem("adet")) || ""
     if(localAdet){
         document.getElementById("cartAdet").style.display="block"
@@ -61,6 +62,7 @@ document.addEventListener("DOMContentLoaded",function(){
         document.getElementById("cartAdet").style.display="none"
     }
 
+//*eğer localde sepete atılmış ürün varsa bunu localden DOM yüklendiğinde ilk çekiyorum ve gösteriyorum yoksa ürün yok yazdırıyorum
     let product=JSON.parse(localStorage.getItem("product")) || ""
     if(product){
         product.forEach(function(element){
@@ -86,7 +88,7 @@ document.addEventListener("DOMContentLoaded",function(){
                 <div class="col-3 sepetBoxTotal d-flex justify-content-between">
                     <p class="sepetBox-total">${element.fiyat}</p>
                     <div class="product-close">
-                        <i class="fa-solid fa-xmark"></i>
+                        <i class="productClose-icon fa-solid fa-xmark"></i>
                     </div>
                 </div>
             `
@@ -99,21 +101,52 @@ document.addEventListener("DOMContentLoaded",function(){
         let sepetIndirim=document.getElementById("sepetIndirimCode")
         let sepetTotal=document.getElementById("sepetTotal")
 
+//*burada sepetteki tüm fiyatlara erişip onların toplamını sayfada hesaplama bölümünde kullanmak üzere hepsine ulaşıyorum ve dahasonra bubları toplayabilmek için 0'a eşit olan bir değişken atıyorum
+//*daha sonra tüm fiyatları gezip bunların parseInt ile number alanlarını alıp 0!a eşit olan değişkenime += ile hepsini üst üste toplayarak gönderiyorum
         let sepetDom=document.querySelectorAll(".sepetBox-price")
         let sepetDomFirst=0
+        let vergiFiyat=0
+        let kargoFiyat=20
+        let indirimFiyat=0
+        let totalFiyat=0
         sepetDom.forEach(function(item){
             let sepetDomNumber=parseInt(item.innerHTML)
             sepetDomFirst+=sepetDomNumber
             sepetUrunFiyat.innerHTML=`${sepetDomFirst} $`
+            vergiFiyat=(sepetDomFirst*10)/100
             sepetVergi.innerHTML=`${(sepetDomFirst*10)/100} $`
+            if(sepetDomFirst>=200){
+                sepetKargo.innerHTML="Free"
+                totalFiyat=sepetDomFirst+vergiFiyat
+                sepetTotal.innerHTML=`${totalFiyat} $`
+            }
+            else{
+                sepetKargo.innerHTML=`${kargoFiyat} $`
+                totalFiyat=sepetDomFirst+vergiFiyat+kargoFiyat
+                sepetTotal.innerHTML=`${totalFiyat} $`
+            }
         })
         let indirimInput=JSON.parse(localStorage.getItem("code")) || ""
-        if(sepetIndirim){
+        let indirimOnay=document.querySelector(".indirimOnay")
+        indirimOnay.addEventListener("click",function(){
             if(indirimInput==sepetIndirim.value){
-                console.log("test")
+                let sonuc=((sepetDomFirst+vergiFiyat)*15)/100
+                indirimFiyat=sonuc.toFixed(1)
+                totalFiyat=sepetDomFirst+vergiFiyat-indirimFiyat
+                sepetTotal.innerHTML=`${totalFiyat} $`
+//*burada kodu kullanınca localden kodu sildim
+                localStorage.removeItem("code")
+                sepetIndirim.classList.remove("hata")
             }
-        }
-        
+            else{
+//*burada animation her hatalı girişte çalışması için ilk sil sonra ekle dedim ama tarayıcı ikisini aynı işlem olarak yürüttü araya VOID kodunu yazarak tarayıcıya bir önceki işlemi işlmesine zorladım
+                sepetIndirim.classList.remove("hata")
+                void sepetIndirim.offsetWidth;
+                sepetIndirim.classList.add("hata")
+                totalFiyat=sepetDomFirst+vergiFiyat
+                sepetTotal.innerHTML=`${totalFiyat} $`
+            }
+        })
     }
     else{
         let sepetBosMessage=document.createElement("div")
@@ -171,6 +204,10 @@ sepetBoxAll.addEventListener("click",function(e){
             let sonuc=urunAdetSon*urunFiyatSon
             urunToplam.innerHTML=`${sonuc} $`
         }
+    }
+    else if(e.target.classList.contains("productClose-icon")){
+        let sepetRow=this.children
+        console.log(sepetRow)
     }
 })
 

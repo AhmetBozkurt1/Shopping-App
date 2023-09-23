@@ -1001,6 +1001,33 @@ body{
 #sepetIndirimCode:focus{
     outline-color: #73777B;
 }
+.hata{
+    position: relative;
+    outline: none;
+    border: 3px solid #C63D2F;
+    animation-name: shake;
+    animation-duration: .3s;
+}
+@keyframes shake{
+    0%{
+        left:10px
+    }
+    20%{
+        left: 0;
+    }
+    40%{
+        left: 10px;
+    }
+    60%{
+        left:0;
+    }
+    80%{
+        left: 10px;
+    }
+    100%{
+        left: 0;
+    }
+}
 .indirim{
     position: relative;
 }
