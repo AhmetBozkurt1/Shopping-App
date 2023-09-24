@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Account</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -68,7 +68,7 @@
                         </li>
                         <li>
                             <i class="fa-solid fa-heart"></i>
-                            <a href="favorite.html">Favorite</a>
+                            <a href="#">Favorite</a>
                         </li>
                         <li id="sepetArtıEksi">
                             <i class="fa-solid fa-cart-shopping"></i>
@@ -145,56 +145,32 @@
         </div>
     </div>
 
-    <!-- LOGIN BASLANGIC -->
     <div class="container mt-5">
-        <div class="row d-flex align-items-center">
-            <div class="col-md-5 loginLeft">
-                <div class="signIn">
-                    <h5 class="signIn-text loginText">Login To Your Account</h5>
-                    <form class="signIn-form loginForm">
-                        <input class="signIn-formName" type="text" role="Sign-in Name" placeholder="Name">
-                        <input class="signIn-formEmail" type="email" role="Sign-ın Email" placeholder="Email">
-                        <div class="formIcon">
-                            <input class="signIn-formPass" type="password" role="Sign-in Password" placeholder="Password">
-                            <i class="fa-regular fa-eye-slash formIcon-eye"></i>
-                        </div>
-                    </form>
-                    <div class="signIn-Message mb-3">
-                        <h5 class="signIn-textMessage d-flex justify-content-between"></h5>
-                    </div>
-                    <div class="signIn-btn mt-3">
-                        <button class="signIn-button loginBtn">Sign In</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 m-auto text-center">
-                <h2 class="orText">OR</h2>
-            </div>
-            <div class="col-md-5 loginRight">
-                <div class="signUp">
-                    <h5 class="signUp-text loginText">New User Sign Up</h5>
-                    <form class="signUp-form loginForm">
-                        <input class="signUp-formName" type="text" role="Sign-up Name" placeholder="Name">
-                        <input class="signUp-formEmail" type="email" role="Sign-up Email" placeholder="Email">
-                        <input class="signUp-formPass" type="password" role="Sign-up Password" placeholder="Password">
-                        <div class="formIcon">
-                            <input class="signUp-formPass2" type="password" role="Sign-up Password" placeholder="Password Repeat">
-                            <i class="fa-regular fa-eye-slash formIcon-eye2"></i>
-                        </div>
-                    </form>
-                    <div class="signUp-message mb-3">
-                        <h5 class="signUp-textMessage d-flex justify-content-between"></h5>
-                    </div>
-                    <div class="signUp-btn">
-                        <button class="signUp-button loginBtn">Sign Up</button>
-                    </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="favori-title">
+                    <h2 class="favori-titleText">
+                        <i class="fa-regular fa-heart"></i> Favorites
+                    </h2>
+                    <h5 class="xxxx" style="display: none;">sepetinizde bu ürün var</h5>
                 </div>
             </div>
         </div>
+        <div class="row favoriteProduct">
+            <!--Favori Ürünler-->
+        </div>
     </div>
 
+
+
+
+
+
+
+
+
     <!-- FOOTER SECTION -->
-    <div class="footer">
+    <div class="footer" style="margin-top: 100px;">
         <div class="container mt-5">
             <div class="row footerFirst py-5 d-flex">
                 <div class="col-md-2 footerFirst-text text-center">
@@ -311,21 +287,17 @@
                 </div>
             </div>
         </div>
-    </div>
-
-
-
-
+    </div> 
 
 
 
     <!-- FONTAWESOME CDN -->
-    <script src="https://kit.fontawesome.com/a09e04a105.js" crossorigin="anonymous"></script>
-    <!-- BOOTSTRAP JS CDN -->
+<script src="https://kit.fontawesome.com/a09e04a105.js" crossorigin="anonymous"></script>
+<!-- BOOTSTRAP JS CDN -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
    crossorigin="anonymous"></script>
 
-   <script src="login.js"></script>
+   <script src="favorite.js"></script>
 </body>
 </html>

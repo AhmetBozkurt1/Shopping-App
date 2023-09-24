@@ -17,7 +17,7 @@ function setApı(url){
                         <button class="productCard-btn" type="button" role="Add Cart">Add Cart</button>
                     </div>
                     <div class="favorites">
-                        <i class="fa-regular fa-heart"></i>
+                        <i class="product-favorite fa-regular fa-heart"></i>
                     </div>
                 </div>
             </div>
@@ -230,7 +230,7 @@ jewelerySearch.addEventListener("click",function(){
                         <button class="productCard-btn" type="button" role="Add Cart">Add Cart</button>
                     </div>
                     <div class="favorites">
-                    <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-heart"></i>
                     </div>
                 </div>
             </div>
@@ -242,8 +242,9 @@ jewelerySearch.addEventListener("click",function(){
 
 //*urun içerisine localStorage alanında verileri her tıklamada her bir ürünü eklemesi için verileri bir dizi içine pushlamak lazım normal obje olarak göndermemeliyiz ve ayrıca click olayının dışına bu global dizi değişkenini tanımlamak lazım
 let urun=JSON.parse(localStorage.getItem("urun")) || []
+//*favori ürünleri locale göndermek için varsa localden çekiyorum yoksa içine pushlamak için boş dizi getiriyorum
+let urunFavori=JSON.parse(localStorage.getItem("favoriUrun")) || []
 let urunAdet=0
-let dataId=0
 productsSectionCard.addEventListener("click",function(e){
     if(e.target.classList.contains("productCard-btn")){
         let parentDiv=e.target.parentElement.parentElement
@@ -251,13 +252,11 @@ productsSectionCard.addEventListener("click",function(e){
         let urunName=parentDiv.children[1].children[1].innerHTML
         let urunFiyat=parentDiv.children[1].children[0].innerHTML
         urunAdet++
-        dataId++
         urun.push(
             {
                 adi:urunName,
                 fiyat:urunFiyat,
-                image:urunImg,
-                id:dataId
+                image:urunImg
             }
         )
 //*her ürün eklendiğinde ürün adetimi bir değişkene atayıp locale kaydediyorum ve bunu sayfa hazır olduğunda sepetimde ürün varsa bunu cart üsründe adetini göstericem
@@ -266,6 +265,21 @@ productsSectionCard.addEventListener("click",function(e){
 
         document.getElementById("cartAdet").style.display="block"
         document.getElementById("cartAdet").innerHTML++
+    }
+//*favorilere ekleyeceğim ürünleri icona tıklayarak ekledim ve bunları hepsini locale gönderdim
+    else if(e.target.classList.contains("product-favorite")){
+        let parentDiv=e.target.parentElement.parentElement
+        let urunImg=parentDiv.children[0].src
+        let urunName=parentDiv.children[1].children[1].innerHTML
+        let urunFiyat=parentDiv.children[1].children[0].innerHTML
+        urunFavori.push(
+            {
+                favoriAdi:urunName,
+                favoriFiyat:urunFiyat,
+                favoriImage:urunImg
+            }
+        )
+        localStorage.setItem("favoriUrun",JSON.stringify(urunFavori))
     }
 })
 

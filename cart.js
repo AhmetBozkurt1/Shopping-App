@@ -50,8 +50,8 @@ cartCvv.addEventListener("blur",function(){
     cartFrond.style.transform="rotateY(0)"
 })
 
+//*************DOMCONTENTLOAD BASLANGIC*************
 document.addEventListener("DOMContentLoaded",function(){
-
 //*eğer sepette ürün varsa bunu locale kaydettiğim sepet adet veri ile her DOM yenilendiğinde veri çekerek sepetteki ürün sayısını gösterdim
     let localAdet=JSON.parse(localStorage.getItem("adet")) || ""
     if(localAdet){
@@ -163,6 +163,7 @@ document.addEventListener("DOMContentLoaded",function(){
         document.querySelector(".sepetBoxAll").appendChild(sepetBosMessage)
     }
 })
+//*************DOMCONTENTLOAD BITIS*************
 
 //*sepetRow içreisine oluşturduğum yapı içindeki verilere ilk başta ulaşamadım sebebi ise benim bu yapım DİNAMİK halde bir yapı benim bunu statik hale getirmem lazım bunun içinde her veriye direkt ulaşmak yerine bunun yerine if yapıları içerisinde clicklenen eleman üzerinden hareket ederek hedef elemana ulaşana kadar click elemandan başlayarak parentElementlerine,onların bir önceki(previousElementSibling) veya bir sonraki(nextElementSibling) elementlerine onlarında children halleri içerisinden ilgili elementlere ulaştım ve onlar üzerinden işlem yaptım
 //*DİNAMİK halde olan bir yapıda verilerie ulaşmak için bu şekilde yapabiliriz
@@ -186,14 +187,26 @@ sepetBoxAll.addEventListener("click",function(e){
         let sonuc=urunAdetSon*urunFiyatSon
         urunToplam.innerHTML=`${sonuc} $`
 
-
-        let sepetWrite=0
+        let sepetWrite=0 //*tüm ürün toplamları
+        let vergiFiyat=0
+        let kargoFiyat=20
+        let totalFiyat=0
         sepetAllFiyat.forEach(function(item){
             let sepetAllNumber=parseInt(item.innerHTML)
             sepetWrite+=sepetAllNumber
             sepetUrunFiyat.innerHTML=`${sepetWrite} $`
+            vergiFiyat=(sepetWrite*10)/100
+            sepetVergi.innerHTML=`${vergiFiyat} $`
+            if(sepetWrite>=200){
+                sepetKargo.innerHTML="Free"
+                totalFiyat=sepetWrite+vergiFiyat
+                sepetTotal.innerHTML=`${totalFiyat} $`
+            }else{
+                sepetKargo.innerHTML=`${kargoFiyat} $`
+                totalFiyat=sepetWrite+vergiFiyat+kargoFiyat
+                sepetTotal.innerHTML=`${totalFiyat} $`
+            }
         })
-        
     }
     else if(e.target.classList.contains("sepetBox-iconEksi")){
         let urunAdet=e.target.parentElement.nextElementSibling
@@ -205,6 +218,27 @@ sepetBoxAll.addEventListener("click",function(e){
             let urunToplam=e.target.parentElement.parentElement.nextElementSibling.children[0]
             let sonuc=urunAdetSon*urunFiyatSon
             urunToplam.innerHTML=`${sonuc} $`
+
+        let sepetWrite=0 //*tüm ürün toplamları
+        let vergiFiyat=0
+        let kargoFiyat=20
+        let totalFiyat=0
+        sepetAllFiyat.forEach(function(item){
+            let sepetAllNumber=parseInt(item.innerHTML)
+            sepetWrite+=sepetAllNumber
+            sepetUrunFiyat.innerHTML=`${sepetWrite} $`
+            vergiFiyat=(sepetWrite*10)/100
+            sepetVergi.innerHTML=`${vergiFiyat} $`
+            if(sepetWrite>=200){
+                sepetKargo.innerHTML="Free"
+                totalFiyat=sepetWrite+vergiFiyat
+                sepetTotal.innerHTML=`${totalFiyat} $`
+            }else{
+                sepetKargo.innerHTML=`${kargoFiyat} $`
+                totalFiyat=sepetWrite+vergiFiyat+kargoFiyat
+                sepetTotal.innerHTML=`${totalFiyat} $`
+            }
+        })
         }
     }
     else if(e.target.classList.contains("productClose-icon")){
@@ -231,6 +265,8 @@ sepetBoxAll.addEventListener("click",function(e){
         let adet=JSON.parse(localStorage.getItem("adet")) || 0
         let newAdet=adet-1
         localStorage.setItem("adet",JSON.stringify(newAdet))
+
+
     }
 })
 
