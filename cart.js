@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
 //*eğer localde sepete atılmış ürün varsa bunu localden DOM yüklendiğinde ilk çekiyorum ve gösteriyorum yoksa ürün yok yazdırıyorum
     let product=JSON.parse(localStorage.getItem("product")) || ""
-    if(product){
+    if(product.length>0){
         product.forEach(function(element){
             let sepetRow=document.createElement("div")
             sepetRow.classList.add("row","sepetBox-product")
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded",function(){
                         <i class="sepetBox-iconArti fa-regular fa-square-plus"></i>
                     </button>
                 </div>
-                <div class="col-3 sepetBoxTotal d-flex justify-content-between">
+                <div class="col-3 sepetBoxTotal d-flex">
                     <p class="sepetBox-total">${element.fiyat}</p>
                     <div class="product-close">
                         <i class="productClose-icon fa-solid fa-xmark"></i>
@@ -93,7 +93,6 @@ document.addEventListener("DOMContentLoaded",function(){
                 </div>
             `
             document.querySelector(".sepetBoxAll").appendChild(sepetRow)
-
         })
         let sepetUrunFiyat=document.getElementById("sepetUrunFiyat")
         let sepetVergi=document.getElementById("sepetVergiFiyat")
@@ -152,10 +151,10 @@ document.addEventListener("DOMContentLoaded",function(){
     else{
         let sepetBosMessage=document.createElement("div")
         sepetBosMessage.innerHTML=`
-            <div class="sepetBosMessage">
+            <div class="sepetBosMessage ">
                 <div class="row">
                     <div class="col-12 d-flex">
-                        <h3 class="sepet-message">There is no product in your cart...</h3>
+                        <h4 class="sepet-message">There is no product in your cart.</h4>
                     </div>
                 </div>
             </div>
@@ -265,8 +264,6 @@ sepetBoxAll.addEventListener("click",function(e){
         let adet=JSON.parse(localStorage.getItem("adet")) || 0
         let newAdet=adet-1
         localStorage.setItem("adet",JSON.stringify(newAdet))
-
-
     }
 })
 

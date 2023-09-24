@@ -11,9 +11,6 @@
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 1.5px;
 }
-body{
-    padding: 0 0 10rem 0;
-}
 
 /**************************/
 /* INDEX.HTML CSS KODLARI */
@@ -480,6 +477,7 @@ body{
 }
 .footerFirst-image{
     text-align: center;
+    align-self: end;
 }
 .footerFirst-image img{
     width: 155px;
@@ -861,6 +859,9 @@ body{
     background: none;
     font-size: 25px;
 }
+.sepetBoxTotal{
+    justify-content: space-between;
+}
 .sepetBox-total{
     font-size: 20px;
     font-weight: 700;
@@ -876,7 +877,7 @@ body{
     margin-top: 2rem;
 }
 .sepet-message{
-    font-weight: 600;
+    font-weight: 700;
 }
 
 
@@ -950,16 +951,19 @@ body{
     outline-color: #FF9B50;
 }
 .cartDate{
-    width: 80%;
+    width: 100%;
     display: flex;
     column-gap: 5px;
 }
 .cartDate input{
-    width: 50%;
+    width: 40%;
     height: 35px;
     margin-bottom: 1.3rem;
     padding: 0 .8rem;
     font-size: 18px;
+}
+.cartInfo-btn{
+    text-align: start;
 }
 .cartButton{
     border: 2px solid #FF9B50;
@@ -1089,8 +1093,394 @@ body{
 .favoritesClose:active{
     transform: scale(1.2);
 }
+.favoriInner-text{
+    font-weight: 700;
+}
 
 
+@media (max-width:1200px){
+    .container{
+        width: 100%;
+        max-width: none;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .navFirst-contactList li a{
+        font-size: 16px;
+    }
+    .corouselVideo{
+        width: 400px;
+    }
+    .carouselFirst-text img{
+        width: 300px;
+        height: 90px;
+    }
+    .carouselFirst-textBaslik{
+        font-size: 30px;
+        font-weight: 500;
+    }
+    .carouselFirst-textParagraf{
+        font-size: 16px;
+    }
+    .carousel-indicators [data-bs-target]{
+        height: 5px;
+    }
+    .carouselSecond-text{
+        font-size: 30px;
+        font-weight: 500;
+    }
+    .carouselSecond-paragraf{
+        font-size: 20px;
+    }
+    .corouselSecond-img{
+        width: 400px;
+    }
+    .corouselSecond-button{
+        font-size: 16px;
+        padding: .3rem 1.5rem;
+    }
+    .corouselSecond-icon i{
+        font-size: 30px;
+    }
+    .footerFirst-map img{
+        width: 150px;
+    }
+    .footerTextImg img{
+        width: 100px;
+        height: 50px;
+    }
+    .footerFirst-image{
+        align-self: start;
+    }
+    .footerFirst-image img{
+        width: 100px;
+    }
+}
+
+@media (max-width:992px){
+    .container{
+        width: 100%;
+        max-width: none;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .navFirst-contactList li a{
+        font-size: 12px;
+    }
+    .navFirst-contactList li i{
+        font-size: 12px;
+    }
+    .navFirst-iconList li{
+        margin-left: 1rem;
+    }
+    .corouselVideo{
+        width: 300px;
+    }
+    .carouselFirst-text img{
+        width: 200px;
+        height: 70px;
+    }
+    .carouselFirst-textBaslik{
+        font-size: 22px;
+        font-weight: 500;
+    }
+    .carouselFirst-textParagraf{
+        font-size: 14px;
+    }
+    .navSecond-linkList li{
+        margin-left: .2rem;
+    }
+    .navSecond-linkList li a{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .navSecond-linkList li i{
+        font-size: 15px;
+    }
+    .navSecond-img img{
+        width: 150px;
+        height: 50px;
+    }
+    .footerFirst-map img{
+        width: 100px;
+    }
+    .footerMap-text{
+        font-size: 10px;
+    }
+    .footerMenu-title{
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    .footerMenuList li{
+        margin-bottom: .4rem;
+    }
+    .footerMenuList a{
+        font-size: 12px;
+    }
+    .footerContact-title{
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .footerContact-input{
+        height: 35px;
+    }
+    .footerContact-btn{
+        height: 35px;
+        font-size: 20px;
+    }
+    .footerContact-text{
+        font-size: 12px;
+    }
+    .footerThird-left h6 , .footerThird-right h6{
+        font-size: 12px;
+    }
+    /* CART.HTML */
+    .creditCart-frond img{
+        width: 300px;
+    }
+    .creditCart-back img{
+        width: 300px;
+    }
+    .totalSection div h5{
+        font-size: 1rem;
+    }
+}
+@media(max-width:766px){
+    .navFirst-left{
+        width: 50%;
+    }
+    .navFirst-right{
+        width: 50%;
+    }
+    .navFirst-contactList a{
+        display: none;
+    }
+    .navFirst-contactList li i{
+        font-size: 20px;
+        margin-top: 15px;
+        margin-left: 1rem;
+    }
+    .navSecond-img img{
+        width: 130px;
+        height: 50px;
+        margin-left: -10px;
+    }
+    .navSecond-img{
+        width: 30%;
+    }
+    .navSecond-link{
+        width: 70%;
+    }
+    .navSecond-linkList li{
+        text-align: center;
+    }
+    .navSecond-linkList li a{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .navSecond-linkList li i{
+        font-size: 20px;
+    }
+    .navThird-left{
+        width: 40%;
+    }
+    .navThird-rigth{
+        width: 60%;
+    }
+    .navThird-input{
+        width: 200px;
+        height: 40px;
+    }
+    .corouselVideo{
+        display: none;
+    }
+    .corouselSecond-img{
+        display: none;
+    }
+    .carouselFirst-left{
+        width: 50%;
+    }
+    .corouselSecond{
+        width: 50%;
+        margin-left: 130px;
+    }
+    .carouselSecond-text{
+        font-size: 20px;
+    }
+    .corouselSecond-icon{
+        display: none;
+    }
+    .products{
+        margin-top: 2rem;
+    }
+    .footerMap-text{
+        left: 35%;
+        top: 40%;
+    }
+    .footerFirst-map img{
+        width: 150px;
+    }
+    .footerMenu-select{
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .footerContact-title{
+        text-align: center;
+        margin-top: 20px;
+    }
+    /*LOGİN HTML*/
+    .signIn-btn{
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    .loginRight{
+        margin-top: 2rem;
+    }
+    .signIn-text{
+        text-align: center;
+    }
+    .signUp-text{
+        text-align: center;
+    }
+    .signUp-btn{
+        text-align: center;
+    }
+    /* CART.HTML*/
+    .cashSection{
+        text-align: center;
+    }
+    .cartDate{
+        justify-content: center;
+    }
+    .cartInfo-btn{
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .categoryImage{
+        display: none;
+    }
+    #cartAdet{
+        top: -90%;
+        right: 50%;
+        width: 20px;
+        height: 20px;
+    }
+}
+@media (max-width:695px){
+    #cartAdet{
+        top: -50%;
+        right: 10%;
+        width: 20px;
+        height: 20px;
+    }
+}
+@media (max-width:576px){
+    .navSecond-img{
+        width: 100%;
+        text-align: center;
+    }
+    .navSecond-img img{
+        width: 200px;
+        height: 80px;
+        margin-left: -10px;
+    }
+    .navSecond-link{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .productsCards .card{
+        height: 350px;
+        margin-bottom: 1rem;
+    }
+    .productCard-img{
+        width: 30%;
+        height: 150px;
+    }
+    .footerFirst-map img{
+        width: 100px;
+    }
+    .footerMap-text{
+        left: 40%;
+        top: 40%;
+    }
+    /* CART.HTML */
+    .sepetBox{
+        display: none;
+    }
+    .sepetBox-product{
+        border-top: 2px solid #D8D9DA;
+        position: relative;
+    }
+    .sepetBoxImg-name{
+        width: 80%;
+    }
+    .spetBoxPrice{
+        width: 20%;
+    }
+    .sepetBox-price{
+        font-size: 16px;
+    }
+    .sepetBoxPiece{
+        width: 60%;
+        justify-content: end;
+    }
+    .sepetBoxTotal{
+        width: 40%;
+        justify-content: end;
+        margin-left: -10px;
+    }
+    .product-close{
+        position: absolute;
+        top: 20px;
+        right: 10px;
+    }
+    .sepetBoxPiece-eksi{
+        font-size: 18px;
+    }
+    .sepetBox-piece{
+        font-size: 16px;
+    }
+    .sepetBoxPiece-arti{
+        font-size: 18px;
+    }
+    .sepetBox-total{
+        font-size: 16px;
+    }
+    #cartAdet{
+        top: -90%;
+        right: 40%;
+        width: 25px;
+        height: 20px;
+    }
+    .cartInfo-text{
+        font-size: 20px;
+    }
+    .cartStyle::placeholder{
+        font-size: 13px;
+    }
+    .cartDate input::placeholder{
+        font-size: 13px;
+    }
+    #sepetIndirimCode{
+        width: 150px;
+    }
+    #sepetIndirimCode::placeholder{
+        font-size: 13px;
+    }
+    .sepetBox-name{
+        font-size: 12px;
+    }
+}
+@media (max-width:496px){
+    #cartAdet{
+        top: -50%;
+        right: 0%;
+        width: 25px;
+        height: 20px;
+    }
+}
 
 
 

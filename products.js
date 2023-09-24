@@ -8,7 +8,7 @@ function setApı(url){
     .then(value=>{
         let productWrite=value.map(element=>{
             return`
-            <div class="col-md-4 productsCards">
+            <div class="col-md-6 col-lg-4 productsCards">
                 <div class="card">
                     <img class="productCard-img" src="${element.image}" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded",function(){
     else{
         document.getElementById("cartAdet").style.display="none"
     }
-    
+
 //*Fiyat Filtre
     const priceSlider=document.getElementById("r-slider")
     noUiSlider.create(priceSlider, {
@@ -139,7 +139,7 @@ menSearch.addEventListener("click",function(){
                         <button class="productCard-btn" type="button" role="Add Cart">Add Cart</button>
                     </div>
                     <div class="favorites">
-                        <i class="fa-regular fa-heart"></i>
+                        <i class="product-favorite fa-regular fa-heart"></i>
                     </div>
                 </div>
             </div>
@@ -167,7 +167,7 @@ womenSearch.addEventListener("click",function(){
                         <button class="productCard-btn" type="button" role="Add Cart">Add Cart</button>
                     </div>
                     <div class="favorites">
-                        <i class="fa-regular fa-heart"></i>
+                        <i class="product-favorite fa-regular fa-heart"></i>
                     </div>
                 </div>
             </div>
@@ -201,7 +201,7 @@ electroSearch.addEventListener("click",function(){
                         <button class="productCard-btn" type="button" role="Add Cart">Add Cart</button>
                     </div>
                     <div class="favorites">
-                    <i class="fa-regular fa-heart"></i>
+                    <i class="product-favorite fa-regular fa-heart"></i>
                     </div>
                 </div>
             </div>
@@ -230,7 +230,7 @@ jewelerySearch.addEventListener("click",function(){
                         <button class="productCard-btn" type="button" role="Add Cart">Add Cart</button>
                     </div>
                     <div class="favorites">
-                        <i class="fa-regular fa-heart"></i>
+                        <i class="product-favorite fa-regular fa-heart"></i>
                     </div>
                 </div>
             </div>
@@ -241,17 +241,19 @@ jewelerySearch.addEventListener("click",function(){
 })
 
 //*urun içerisine localStorage alanında verileri her tıklamada her bir ürünü eklemesi için verileri bir dizi içine pushlamak lazım normal obje olarak göndermemeliyiz ve ayrıca click olayının dışına bu global dizi değişkenini tanımlamak lazım
-let urun=JSON.parse(localStorage.getItem("urun")) || []
+let urun=JSON.parse(localStorage.getItem("product")) || []
 //*favori ürünleri locale göndermek için varsa localden çekiyorum yoksa içine pushlamak için boş dizi getiriyorum
 let urunFavori=JSON.parse(localStorage.getItem("favoriUrun")) || []
-let urunAdet=0
+//*ilk başta localden ürün sayısını çekmemiştim ve her ürün eklemede başka sayfaya gidip tekrar ekleme yaptığımda elimdeki veriler gidiyordu o yüzden bu sorunu localden ürün sayısnı çekerek ve öyle bir değer yoksa da 0 getirsin diyerek çözdüm
+let urunSayi=JSON.parse(localStorage.getItem("adet")) || 0
+
 productsSectionCard.addEventListener("click",function(e){
     if(e.target.classList.contains("productCard-btn")){
         let parentDiv=e.target.parentElement.parentElement
         let urunImg=parentDiv.children[0].src
         let urunName=parentDiv.children[1].children[1].innerHTML
         let urunFiyat=parentDiv.children[1].children[0].innerHTML
-        urunAdet++
+        urunSayi++
         urun.push(
             {
                 adi:urunName,
@@ -260,8 +262,8 @@ productsSectionCard.addEventListener("click",function(e){
             }
         )
 //*her ürün eklendiğinde ürün adetimi bir değişkene atayıp locale kaydediyorum ve bunu sayfa hazır olduğunda sepetimde ürün varsa bunu cart üsründe adetini göstericem
-        localStorage.setItem("adet",JSON.stringify(urunAdet))
         localStorage.setItem("product",JSON.stringify(urun))
+        localStorage.setItem("adet",JSON.stringify(urunSayi))
 
         document.getElementById("cartAdet").style.display="block"
         document.getElementById("cartAdet").innerHTML++
